@@ -1,0 +1,26 @@
+.sticky-nav {
+    position: fixed;
+    width: 100%;
+    background-color: #4C8BF5;
+    z-index: 2;
+    top: 0;
+}
+
+.sticky-nav-padding {
+    padding: 5px;
+}
+
+.sticky-nav-row i,
+.sticky-nav-row h5{
+    color: white;
+    padding-left: 8px;
+    padding-top: 4px;
+}
+
+.plus-button i {
+    padding: unset;
+}
+
+.plus-button i:not(:last-child) {
+    color: red;
+}
