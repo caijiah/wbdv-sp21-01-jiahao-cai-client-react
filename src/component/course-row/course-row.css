@@ -1,0 +1,12 @@
+.confirm-button {
+    color: green;
+}
+
+.delete-button {
+    color: red;
+    margin-left: 10px;
+}
+
+.edit-button {
+    color: royalblue;
+}
