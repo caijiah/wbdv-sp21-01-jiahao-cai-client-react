@@ -1,0 +1,9 @@
+.grid-header {
+    font-weight: bold;
+    font-family: "Helvetica Neue", serif;
+    margin-top: 63px;
+}
+
+.grid-header i {
+    margin-left: 10px;
+}
