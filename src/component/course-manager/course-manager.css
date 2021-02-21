@@ -32,3 +32,14 @@
 .course-table {
     margin-top: 50px;
 }
+
+.sticky-button {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    color: red;
+}
+
+.sticky-button :hover{
+    cursor: pointer;
+}
