@@ -14,9 +14,6 @@ export default class CourseTable extends
         console.log(this.props.courses)
         return(
             <div>
-                {/*<Link to="/courses/grid">*/}
-                {/*    <i className="fas fa-th float-right fa-2x"></i>*/}
-                {/*</Link>*/}
                 <table className="table">
                     <thead>
                         <tr>
@@ -29,8 +26,10 @@ export default class CourseTable extends
                                        aria-hidden="true"/>
                                     <i className="fas fa-sort-alpha-up-alt"
                                        aria-hidden="true"/>
-                                    <i className="fas fa-th"
-                                       aria-hidden="true"/>
+                                    <Link to="/courses/grid">
+                                        <i className="fas fa-th"
+                                           aria-hidden="true"/>
+                                    </Link>
                                 </span>
                             </th>
                         </tr>
