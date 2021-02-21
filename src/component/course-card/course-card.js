@@ -24,7 +24,7 @@ const CourseCard = (
             <div className="card h-100">
                 {
                     editing&&
-                    <span className="top-left-buttons">
+                    <span className="top-right-buttons">
                         <i onClick={() => saveCourse()}
                            className="fas fa-check confirm-button"/>
                         <i onClick={() => deleteCourse(course)}
