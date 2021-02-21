@@ -31,7 +31,7 @@ return(
                 {
                     !this.state.editing &&
                     <Link to="/editor">
-                        <i className="fas fa-file mr-2"></i>
+                        <i className="fas fa-file mr-2"/>
                         {this.props.title}
                     </Link>
                 }
@@ -57,11 +57,11 @@ return(
                                className="fas fa-times delete-button"/>
                         </>
                     }
-                {
+                    {
                     !this.state.editing &&
                     <i onClick={() => this.setState({editing:true})}
-                       className="fas fa-edit edit-button"></i>
-                }
+                       className="fas fa-edit edit-button"/>
+                    }
                 </span>
             </td>
         </tr>)
