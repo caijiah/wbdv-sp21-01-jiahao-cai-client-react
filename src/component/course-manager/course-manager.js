@@ -2,22 +2,20 @@ import React from "react";
 import api from "../../services/course-service";
 import {Link, Route} from "react-router-dom";
 import CourseTable from "../course-table/course-table";
-// import CourseGrid from "../course-editor/course-editor";
+import CourseGrid from "../course-grid/course-grid";
 import "./course-manager.css"
 
 export default class CourseManager
     extends React.Component {
-
     state = {
         courses: [],
         newCourseTitle: ""
     }
 
-
     componentDidMount() {
         api.findAllCourses()
             .then(courses => {
-                courses.map( c => {
+                courses.map(c => {
                     c.lastModified = this.convertDate(c["_updatedAt"])
                 })
                 this.setState({courses})
@@ -57,20 +55,22 @@ export default class CourseManager
 
     addCourse = () => {
         const newCourse = {
-            title: this.state.newCourseTitle,
             owner: "me",
-            // lastModified: "2/10/2021"
+        }
+        if (this.state.newCourseTitle === '') {
+            newCourse.title = "Default New Course Title"
+        } else {
+            newCourse.title = this.state.newCourseTitle
         }
         api.createCourse(newCourse)
             .then(actualCourse => {
                 // console.log(actualCourse)
                 actualCourse.lastModified = this.convertDate(actualCourse["_updatedAt"])
                 this.state.courses.push(actualCourse)
-                this.state.newCourseTitle = ""
+                this.setState({newCourseTitle: ''})
                 this.setState(this.state)
             })
     }
-
 
     render() {
         return (
@@ -86,14 +86,15 @@ export default class CourseManager
                         <div className="col-lg-7 col-md-8 col-6 search">
                             <input id="search-bar" className="form-control"
                                    placeholder="New Course Title"
+                                   value={this.state.newCourseTitle}
                             onChange={(e) =>
                                 this.setState({newCourseTitle : e.target.value})}/>
                         </div>
                         <div className="col-lg-1 col plus-button">
                             <span className="fa-stack fa-lg"
                                   onClick={() => this.addCourse()}>
-                                <i className="fa fa-circle fa-stack-2x"></i>
-                                <i className="fa fa fa-plus fa-stack-1x"></i>
+                                <i className="fa fa-circle fa-stack-2x"/>
+                                <i className="fa fa fa-plus fa-stack-1x"/>
                             </span>
                         </div>
                     </div>
@@ -106,11 +107,14 @@ export default class CourseManager
                             courses={this.state.courses}/>
                     </Route>
                 </div>
-                {/*<div className="course-grid">*/}
-                {/*    <Route path="/courses/grid" exact={true} >*/}
-                {/*        <CourseGrid courses={this.state.courses}/>*/}
-                {/*    </Route>*/}
-                {/*</div>*/}
+                <div className="course-grid">
+                    <Route path="/courses/grid" exact={true} >
+                        <CourseGrid
+                            courses={this.state.courses}
+                            updateCourse={this.updateCourse}
+                            deleteCourse={this.deleteCourse}/>
+                    </Route>
+                </div>
                 <div className="sticky-button">
                     <i className="fa fa-plus-circle fa-3x"
                        aria-hidden="true"
