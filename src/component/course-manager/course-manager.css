@@ -21,6 +21,14 @@
     padding: unset;
 }
 
+.plus-button :hover{
+    cursor: pointer;
+}
+
 .plus-button i:not(:last-child) {
     color: red;
+}
+
+.course-table {
+    margin-top: 50px;
 }
