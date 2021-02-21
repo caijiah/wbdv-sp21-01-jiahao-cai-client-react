@@ -1,0 +1,28 @@
+.card {
+    margin: 15px;
+}
+
+.confirm-button {
+     color: green;
+     cursor: pointer;
+ }
+
+.delete-button {
+    color: red;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.edit-button {
+    color: royalblue;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5px;
+    right: 3px;
+}
+
+.top-left-buttons {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+}
