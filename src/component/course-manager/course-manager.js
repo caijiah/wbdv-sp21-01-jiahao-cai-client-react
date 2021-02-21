@@ -2,10 +2,12 @@ import React from "react";
 import api from "../../services/course-service";
 import {Link, Route} from "react-router-dom";
 import CourseTable from "../course-table/course-table";
+// import CourseGrid from "../course-editor/course-editor";
 import "./course-manager.css"
 
 export default class CourseManager
     extends React.Component {
+
     state = {
         courses: [],
         newCourseTitle: ""
@@ -103,6 +105,16 @@ export default class CourseManager
                             deleteCourse={this.deleteCourse}
                             courses={this.state.courses}/>
                     </Route>
+                </div>
+                {/*<div className="course-grid">*/}
+                {/*    <Route path="/courses/grid" exact={true} >*/}
+                {/*        <CourseGrid courses={this.state.courses}/>*/}
+                {/*    </Route>*/}
+                {/*</div>*/}
+                <div className="sticky-button">
+                    <i className="fa fa-plus-circle fa-3x"
+                       aria-hidden="true"
+                    onClick={()=>this.addCourse()}/>
                 </div>
             </div>
 
