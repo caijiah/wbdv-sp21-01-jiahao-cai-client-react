@@ -1,0 +1,22 @@
+.ml-3 {
+    margin-left: 3rem !important;
+}
+
+.navbar-light {
+    background-color: #2F2FA2;
+}
+
+.navbar-nav>.active> a,
+.navbar-nav>.active> a:focus,
+.navbar-nav>.active> a:hover{
+    background-color: #F64C72; /* Anything you want */
+}
+
+.navbar a{
+    color: white !important;
+}
+
+.back-button {
+    color: white;
+    cursor: pointer;
+}
