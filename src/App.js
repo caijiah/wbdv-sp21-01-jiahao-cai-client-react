@@ -9,10 +9,12 @@ import './App.css';
 function App() {
   return (
       <BrowserRouter>
+          <div>
           <Route path="/" exact={true} component={Home}/>
           <Route path="/courses" component={CourseManager}/>
-          <div className="container-fluid">
+              <div className="container-fluid">
 
+              </div>
           </div>
       </BrowserRouter>
   );
