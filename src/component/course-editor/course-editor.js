@@ -104,7 +104,7 @@ const CourseEditor = ({history}) => {
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#" tabIndex="-1" aria-disabled="true">
-                                    <i className="fa fa-plus"></i>
+                                    <i className="fa fa-plus"/>
                                 </a>
                             </li>
                         </ul>
