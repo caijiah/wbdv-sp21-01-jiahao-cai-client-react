@@ -73,9 +73,12 @@ export default class CourseManager
             .then(actualCourse => {
                 actualCourse.lastModified = this.convertDate(actualCourse["_updatedAt"])
                 this.setState(
-                    (prevState) =>
-                        ({...prevState, courses: [...prevState.courses, actualCourse],
-                            newCourseTitle: ''}))
+                    (prevState) => (
+                            {
+                            ...prevState,
+                            courses: [...prevState.courses, actualCourse],
+                            newCourseTitle: ''}
+                            ))
             })
     }
 
