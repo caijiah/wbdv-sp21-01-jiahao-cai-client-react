@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 import "./course-editor.css"
 
 const CourseEditor = ({history}) => {
@@ -111,7 +112,9 @@ const CourseEditor = ({history}) => {
                 </div>
                 <div className="mb-3 row">
                     <div className="col-sm-10">
-                        <a href="../index.html"><i className="fa fa-home"></i> Back to homepage </a>
+                        <Link to="/">
+                            <i className="fa fa-home"></i> Back to homepage
+                        </Link>
                     </div>
                 </div>
             </div>
