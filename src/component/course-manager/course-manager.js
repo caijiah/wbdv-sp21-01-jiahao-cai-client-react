@@ -33,7 +33,6 @@ export default class CourseManager
         new Date(orinDate).toLocaleDateString("en-US")
 
     updateCourse = (course) => {
-        console.log(course)
         api.updateCourse(course._id, course)
             .then(status => {
                 this.setState((prevState) => {
@@ -51,12 +50,12 @@ export default class CourseManager
             })
     }
 
-    deleteCourse = (course) => {
-        api.deleteCourse(course._id)
+    deleteCourse = (courseToDelete) => {
+        api.deleteCourse(courseToDelete._id)
             .then(status => {
                 this.setState((prevState) => ({
                     ...prevState,
-                    courses: prevState.courses.filter(c => c !== course)
+                    courses: prevState.courses.filter(course => course !== courseToDelete)
                 }))
             })
     }
