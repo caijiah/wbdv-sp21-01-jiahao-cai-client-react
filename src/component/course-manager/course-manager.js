@@ -110,7 +110,7 @@ export default class CourseManager
                     </div>
                 </div>
                 <div className="course-table">
-                    <Route path="/courses/table" exact={true} >
+                    <Route path={["/courses", "/courses/table"]} exact={true} >
                         <CourseTable
                             updateCourse={this.updateCourse}
                             deleteCourse={this.deleteCourse}
