@@ -20,3 +20,7 @@
     color: white;
     cursor: pointer;
 }
+
+.closing-button {
+    cursor: pointer;
+}

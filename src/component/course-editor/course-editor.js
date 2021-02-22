@@ -10,7 +10,9 @@ const CourseEditor = ({history}) => {
                    aria-hidden="true"
                    onClick={() => history.goBack()}/>
                 <a className="navbar-brand">
-                    <i className="fa fa-times mr-2" aria-hidden="true"/>
+                    <i className="fa fa-times fa-2x mr-2 closing-button"
+                       aria-hidden="true"
+                       onClick={() => history.goBack()}/>
                     CS5610 - WebDev
                 </a>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
