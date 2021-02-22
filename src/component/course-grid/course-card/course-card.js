@@ -36,7 +36,9 @@ const CourseCard = (
                 <div className="card-body">
                     {
                         !editing &&
-                        <h5 className="card-title">{course.title}</h5>
+                        <Link to="/editor">
+                            <h5 className="card-title course-title-link">{course.title}</h5>
+                        </Link>
                     }
 
                     {

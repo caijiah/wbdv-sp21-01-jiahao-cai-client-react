@@ -26,3 +26,8 @@
     top: 5px;
     right: 15px;
 }
+
+.course-title-link {
+    cursor: pointer;
+    color: black;
+}
