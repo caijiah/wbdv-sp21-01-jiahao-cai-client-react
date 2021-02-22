@@ -11,7 +11,6 @@ export default class CourseTable extends
     }
 
     render() {
-        console.log(this.props.courses)
         return(
             <div>
                 <table className="table">
