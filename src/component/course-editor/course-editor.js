@@ -38,7 +38,7 @@ const CourseEditor = ({history}) => {
                         </li>
                         <li className="nav-item ml-3">
                             <a className="nav-link" href="#" tabIndex="-1" aria-disabled="true">
-                                <i className="fa fa-plus"></i>
+                                <i className="fa fa-plus"/>
                             </a>
                         </li>
                     </ul>
@@ -51,34 +51,34 @@ const CourseEditor = ({history}) => {
                         <ul className="list-group">
                             <li className="list-group-item active">
                                 Module 1 - JQuery
-                                <i className="pull-right fa fa-trash"></i>
+                                <i className="pull-right fa fa-trash"/>
                             </li>
                             <li className="list-group-item">
                                 Module 2 - React
-                                <i className="pull-right fa fa-trash"></i>
+                                <i className="pull-right fa fa-trash"/>
                             </li>
                             <li className="list-group-item">
                                 Module 3 - Redux
-                                <i className="pull-right fa fa-trash"></i>
+                                <i className="pull-right fa fa-trash"/>
                             </li>
                             <li className="list-group-item">
                                 Module 4 - Native
-                                <i className="pull-right fa fa-trash"></i>
+                                <i className="pull-right fa fa-trash"/>
                             </li>
                             <li className="list-group-item">
                                 Module 5 - Angular
-                                <i className="pull-right fa fa-trash"></i>
+                                <i className="pull-right fa fa-trash"/>
                             </li>
                             <li className="list-group-item">
                                 Module 6 - Node
-                                <i className="pull-right fa fa-trash"></i>
+                                <i className="pull-right fa fa-trash"/>
                             </li>
                             <li className="list-group-item">
                                 Module 7 - Mongo
-                                <i className="pull-right fa fa-trash"></i>
+                                <i className="pull-right fa fa-trash"/>
                             </li>
                             <li className="list-group-item">
-                                <i className="pull-right fa fa-plus"></i>
+                                <i className="pull-right fa fa-plus"/>
                             </li>
                         </ul>
 
@@ -115,7 +115,7 @@ const CourseEditor = ({history}) => {
                 <div className="mb-3 row">
                     <div className="col-sm-10">
                         <Link to="/">
-                            <i className="fa fa-home"></i> Back to homepage
+                            <i className="fa fa-home"/> Back to homepage
                         </Link>
                     </div>
                 </div>
