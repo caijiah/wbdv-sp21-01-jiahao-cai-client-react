@@ -22,6 +22,13 @@ export default class CourseManager
             })
     }
 
+    findCourseById = (_id) => {
+        api.findCourseById(_id)
+            .then(course => {
+                console.log(course)
+            })
+    }
+
     convertDate = (orinDate) =>
         new Date(orinDate).toLocaleDateString("en-US")
 
