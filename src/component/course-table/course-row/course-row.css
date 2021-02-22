@@ -1,15 +1,15 @@
-.confirm-button {
+.row-confirm-button {
     color: green;
     cursor: pointer;
 }
 
-.delete-button {
+.row-delete-button {
     color: red;
     margin-left: 10px;
     cursor: pointer;
 }
 
-.edit-button {
+.row-edit-button {
     color: royalblue;
     cursor: pointer;
 }

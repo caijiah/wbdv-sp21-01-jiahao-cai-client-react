@@ -2,18 +2,18 @@
     margin: 15px;
 }
 
-.confirm-button {
+.card-confirm-button {
      color: green;
      cursor: pointer;
  }
 
-.delete-button {
+.card-delete-button {
     color: red;
     margin-left: 10px;
     cursor: pointer;
 }
 
-.edit-button {
+.card-edit-button {
     color: royalblue;
     cursor: pointer;
     position: absolute;

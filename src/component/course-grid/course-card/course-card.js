@@ -26,9 +26,9 @@ const CourseCard = (
                     editing&&
                     <span className="top-right-buttons">
                         <i onClick={() => saveCourse()}
-                           className="fas fa-check confirm-button"/>
+                           className="fas fa-check card-confirm-button"/>
                         <i onClick={() => deleteCourse(course)}
-                           className="fas fa-times delete-button"/>
+                           className="fas fa-times card-delete-button"/>
                     </span>
                 }
                 <img src="https://www.valuecoders.com/blog/wp-content/uploads/2016/08/react.png"
@@ -55,7 +55,7 @@ const CourseCard = (
                     {
                         !editing &&
                         <i onClick={() => setEditing(true)}
-                           className="fas fa-edit edit-button"/>
+                           className="fas fa-edit card-edit-button"/>
                     }
 
                 </div>
