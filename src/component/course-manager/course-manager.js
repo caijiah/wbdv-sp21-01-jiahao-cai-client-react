@@ -91,7 +91,7 @@ export default class CourseManager
                                 this.setState({newCourseTitle : e.target.value})}/>
                         </div>
                         <div className="col-lg-1 col plus-button">
-                            <span className="fa-stack fa-lg"
+                            <span className="fa-stack fa-sm"
                                   onClick={() => this.addCourse()}>
                                 <i className="fa fa-circle fa-stack-2x"/>
                                 <i className="fa fa fa-plus fa-stack-1x"/>
@@ -116,9 +116,14 @@ export default class CourseManager
                     </Route>
                 </div>
                 <div className="sticky-button">
-                    <i className="fa fa-plus-circle fa-3x"
-                       aria-hidden="true"
-                    onClick={()=>this.addCourse()}/>
+                    <span className="fa-stack fa-2x"
+                          onClick={() => this.addCourse()}>
+                                <i className="fa fa-circle fa-stack-2x"/>
+                                <i className="fa fa fa-plus fa-stack-1x"/>
+                            </span>
+                    {/*<i className="fa fa-plus-circle fa-3x"*/}
+                    {/*   aria-hidden="true"*/}
+                    {/*onClick={()=>this.addCourse()}/>*/}
                 </div>
             </div>
 
