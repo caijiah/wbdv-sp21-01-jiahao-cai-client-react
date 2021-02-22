@@ -18,7 +18,7 @@
 }
 
 .plus-button i {
-    padding: unset;
+    /*padding: unset;*/
 }
 
 .plus-button :hover{
@@ -29,17 +29,24 @@
     color: red;
 }
 
+
 .course-table {
-    margin-top: 50px;
+    margin-top: 48px;
 }
 
 .sticky-button {
     position: fixed;
     bottom: 35px;
     right: 50px;
-    color: red;
+    /*color: red;*/
+    color: white;
+    font-size: 0.85rem;
 }
 
 .sticky-button :hover{
     cursor: pointer;
+}
+
+.sticky-button i:not(:last-child) {
+    color: red;
 }
