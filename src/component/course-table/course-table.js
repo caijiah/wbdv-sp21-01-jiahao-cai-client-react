@@ -17,10 +17,10 @@ export default class CourseTable extends
                 <table className="table">
                     <thead>
                         <tr>
-                            <th className="col-md-6">Title</th>
-                            <th className="col-md-2">Owned by</th>
-                            <th className="col-md-2">Last modified</th>
-                            <th className="col-md-2">
+                            <th className="col-lg-6 col-md-8 col-8">Title</th>
+                            <th className="col-lg-2 col-md-2 d-none d-md-table-cell">Owned by</th>
+                            <th className="col-lg-2 d-none d-lg-table-cell">Last modified</th>
+                            <th className="col-lg-2 col-md-2 col-4">
                                 <span className="float-right button-header">
                                     <i className="fas fa-folder"
                                        aria-hidden="true"/>

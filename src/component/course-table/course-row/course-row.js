@@ -44,8 +44,8 @@ return(
                         value={this.state.title}/>
                 }
             </td>
-            <td>{this.props.owner}</td>
-            <td>{this.props.lastModified}</td>
+            <td className="d-none d-md-table-cell">{this.props.owner}</td>
+            <td className="d-none d-lg-table-cell">{this.props.lastModified}</td>
             <td>
                 <span className="float-right">
                     {
