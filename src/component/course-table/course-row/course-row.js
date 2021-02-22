@@ -25,7 +25,7 @@ class CourseRow extends
     }
 
     render() {
-return(
+        return(
         <tr>
             <td>
                 {
