@@ -128,9 +128,9 @@ export default class CourseManager
                 <div className="sticky-button">
                     <span className="fa-stack fa-2x"
                           onClick={() => this.addCourse()}>
-                                <i className="fa fa-circle fa-stack-2x"/>
-                                <i className="fa fa fa-plus fa-stack-1x"/>
-                            </span>
+                        <i className="fa fa-circle fa-stack-2x"/>
+                        <i className="fa fa fa-plus fa-stack-1x"/>
+                    </span>
                     {/*<i className="fa fa-plus-circle fa-3x"*/}
                     {/*   aria-hidden="true"*/}
                     {/*onClick={()=>this.addCourse()}/>*/}
