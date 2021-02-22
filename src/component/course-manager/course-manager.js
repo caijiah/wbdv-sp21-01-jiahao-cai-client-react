@@ -55,7 +55,8 @@ export default class CourseManager
         api.deleteCourse(course._id)
             .then(status => {
                 this.setState((prevState) => ({
-                    courses: prevState.courses.filter(c => c._id !== course._id)
+                    ...prevState,
+                    courses: prevState.courses.filter(c => c !== course)
                 }))
             })
     }
@@ -71,11 +72,11 @@ export default class CourseManager
         }
         api.createCourse(newCourse)
             .then(actualCourse => {
-                // console.log(actualCourse)
                 actualCourse.lastModified = this.convertDate(actualCourse["_updatedAt"])
-                this.state.courses.push(actualCourse)
-                this.setState({newCourseTitle: ''})
-                this.setState(this.state)
+                this.setState(
+                    (prevState) =>
+                        ({...prevState, courses: [...prevState.courses, actualCourse],
+                            newCourseTitle: ''}))
             })
     }
 
