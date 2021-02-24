@@ -16,7 +16,7 @@ export default class CourseManager
         api.findAllCourses()
             .then(courses => {
                 courses.map(c => {
-                    c.lastModified = this.convertDate(c["_updatedAt"])
+                    return c.lastModified = this.convertDate(c["_updatedAt"])
                 })
                 this.setState({courses})
             })
