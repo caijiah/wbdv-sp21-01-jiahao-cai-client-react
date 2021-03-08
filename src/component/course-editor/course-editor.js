@@ -44,7 +44,7 @@ const CourseEditor = ({history}) => {
                     </ul>
                 </div>
             </nav>
-            <div className="container">
+            <div className="container editor-content">
                 <div className="row">
                     <div className="col-4">
 

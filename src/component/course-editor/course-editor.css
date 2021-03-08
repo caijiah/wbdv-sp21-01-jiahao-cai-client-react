@@ -24,3 +24,7 @@
 .closing-button {
     cursor: pointer;
 }
+
+.editor-content {
+    margin-top: 5px;
+}
