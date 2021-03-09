@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from "react-redux"
+import EditableItem from "../../editable-item";
 
 const LessonTabs = ({lessons=[]}) =>
     <ul className="nav nav-tabs">
@@ -8,8 +9,9 @@ const LessonTabs = ({lessons=[]}) =>
                             <li
                                 key={lesson._id}
                                 className="nav-item">
-                                <a className="nav-link active" href="#">{lesson.title}
-                                    <i className="float-right fa fa-trash"/>
+                                <a className="nav-link active" href="#">
+                                    <EditableItem item={lesson}/>
+                                    {/*<i className="float-right fa fa-trash"/>*/}
                                 </a>
                             </li>)
         }
