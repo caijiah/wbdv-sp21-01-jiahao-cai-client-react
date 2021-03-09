@@ -30,7 +30,7 @@ class CourseRow extends
                 <td>
                     {
                         !this.state.editing &&
-                        <Link to="/editor">
+                        <Link to={`/courses/table/edit/${this.props.course._id}`}>
                             <i className="fas fa-file mr-2"/>
                             {this.props.title}
                         </Link>
