@@ -4,14 +4,13 @@ import {connect} from "react-redux"
 import EditableItem from "../../editable-item";
 import lessonService from "../../../services/lesson-service"
 import "./lesson-tabs.css"
-import moduleService from "../../../services/module-service";
 
 const LessonTabs = ({   lessons=[],
                         findLessonsForModule,
                         createLessonForModule,
                         deleteLesson}) =>
 {
-    const {layout, courseId, moduleId} = useParams()
+    const {layout, courseId, moduleId, lessonId} = useParams()
     useEffect(()=> {
         if (moduleId !== "undefined" && typeof moduleId !== "undefined") {
             findLessonsForModule(moduleId)
@@ -26,6 +25,7 @@ const LessonTabs = ({   lessons=[],
                                     className="nav-item">
                                     <EditableItem
                                         deleteItem={deleteLesson}
+                                        active={lessonId === lesson._id}
                                         to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                                         item={lesson}/>
                                 </li>)
