@@ -1,15 +1,20 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {connect} from "react-redux"
 import "./module-list.css"
 import EditableItem from "../../editable-item";
 import {useParams} from "react-router-dom";
+import moduleApi from "../../../services/module-service";
 
 
 const ModuleList = ({modules=[],
                     createModule,
                     updateModule,
-                    deleteModule}) => {
-    const {layout, courseId, moduleId} = useParams()
+                    deleteModule,
+                    findModulesForCourse}) => {
+    const {layout, courseId} = useParams()
+    useEffect(()=> {
+        findModulesForCourse(courseId)
+    }, [])
     return (
         <ul className="list-group">
             {
@@ -54,6 +59,13 @@ const dtpm = (dispath) => {
                     type: "DELETE_MODULE",
                     moduleToDelete: moduleToDelete
                 })
+        },
+        findModulesForCourse: (courseId) => {
+            moduleApi.findModulesForCourse(courseId)
+                .then(modules => dispath({
+                                             type: "FIND_MODULES_FOR_COURSE",
+                                             modules: modules
+                                         }))
         }
     }
 }
