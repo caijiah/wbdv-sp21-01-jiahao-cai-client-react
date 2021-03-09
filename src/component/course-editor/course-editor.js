@@ -4,7 +4,7 @@ import "./course-editor.css"
 import moduleReducer from "../../reducer/module-reducer"
 import {createStore} from "redux";
 import {Provider} from "react-redux";
-import ModuleList from "../module-list/module-list";
+import ModuleList from "./module-list/module-list";
 
 const store = createStore(moduleReducer)
 
@@ -12,44 +12,16 @@ const CourseEditor = ({history}) => {
     return (
         <Provider store={store}>
             <div>
-                <nav className="navbar navbar-expand-lg navbar-light">
-                    <i className="fas fa-arrow-alt-circle-left mr-2 fa-2x back-button"
-                       aria-hidden="true"
-                       onClick={() => history.goBack()}/>
+                <nav className="navbar navbar-light">
                     <a className="navbar-brand">
+                        <i className="fas fa-arrow-alt-circle-left mr-2 fa-2x back-button"
+                           aria-hidden="true"
+                           onClick={() => history.goBack()}/>
                         <i className="fa fa-times fa-2x mr-2 closing-button"
                            aria-hidden="true"
                            onClick={() => history.goBack()}/>
                         CS5610 - WebDev
                     </a>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav mr-auto">
-                            <li className="nav-item ml-3 active">
-                                <a className="nav-link" href="#">Build <span
-                                    className="sr-only">(current)</span></a>
-                            </li>
-                            <li className="nav-item ml-3">
-                                <a className="nav-link" href="#">Pages </a>
-                            </li>
-                            <li className="nav-item ml-3">
-                                <a className="nav-link disabled" href="#">Theme</a>
-                            </li>
-                            <li className="nav-item ml-3">
-                                <a className="nav-link" href="#">Store</a>
-                            </li>
-                            <li className="nav-item ml-3">
-                                <a className="nav-link" href="#">Apps</a>
-                            </li>
-                            <li className="nav-item ml-3">
-                                <a className="nav-link" href="#">Settings</a>
-                            </li>
-                            <li className="nav-item ml-3">
-                                <a className="nav-link" href="#" tabIndex="-1" aria-disabled="true">
-                                    <i className="fa fa-plus"/>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </nav>
                 <div className="container editor-content">
                     <div className="row">
