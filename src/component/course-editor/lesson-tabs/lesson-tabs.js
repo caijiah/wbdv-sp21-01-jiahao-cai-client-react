@@ -13,7 +13,9 @@ const LessonTabs = ({   lessons=[],
 {
     const {layout, courseId, moduleId} = useParams()
     useEffect(()=> {
-        findLessonsForModule(moduleId)
+        if (moduleId !== "undefined" && typeof moduleId !== "undefined") {
+            findLessonsForModule(moduleId)
+        }
     },[moduleId])
     return (
         <ul className="nav nav-tabs">
