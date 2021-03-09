@@ -17,10 +17,7 @@ const createModule = (courseId, module) =>
 
 const deleteModule = (moduleId) =>
     fetch(`${MODULES_URL}/${moduleId}`, {
-        method:"DELETE",
-        headers : {
-            'content-type': 'application/json'
-        }
+        method:"DELETE"
     })
         .then(response => response.json())
 
