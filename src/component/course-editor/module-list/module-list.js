@@ -21,7 +21,7 @@ const ModuleList = ({modules}) =>
 
 const stpm = (state) => {
     return {
-        modules: state.modules
+        modules: state.moduleReducer.modules
     }
 }
 

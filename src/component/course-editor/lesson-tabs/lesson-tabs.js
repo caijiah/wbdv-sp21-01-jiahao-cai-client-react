@@ -1,15 +1,16 @@
 import React from 'react'
 import {connect} from "react-redux"
 
-const LessonTabs = ({lessons}) =>
-    <ul className="list-group">
+const LessonTabs = ({lessons=[]}) =>
+    <ul className="nav nav-tabs">
         {
             lessons.map(lesson =>
                             <li
                                 key={lesson._id}
-                                className="list-group-item">
-                                {lesson.title}
-                                <i className="float-right fa fa-trash"/>
+                                className="nav-item">
+                                <a className="nav-link active" href="#">{lesson.title}
+                                    <i className="float-right fa fa-trash"/>
+                                </a>
                             </li>)
         }
         {/*<li className="list-group-item active">*/}
@@ -21,7 +22,7 @@ const LessonTabs = ({lessons}) =>
 
 const stpm = (state) => {
     return {
-        lessons: state.lessons
+        lessons: state.lessonReducer.lessons
     }
 }
 
