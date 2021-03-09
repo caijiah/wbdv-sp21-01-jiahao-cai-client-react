@@ -30,12 +30,12 @@ const CourseEditor = ({history}) => {
                         CS5610 - WebDev
                     </a>
                 </nav>
-                <div className="container editor-content">
-                    <div className="row">
-                        <div className="col-4">
+                <div className="container-fluid">
+                    <div className="row editor-content">
+                        <div className="col-3">
                             <ModuleList/>
                         </div>
-                        <div className="col-8">
+                        <div className="col-9">
                             <LessonTabs/>
                             <br/>
 
