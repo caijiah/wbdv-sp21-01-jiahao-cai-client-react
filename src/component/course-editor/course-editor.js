@@ -4,6 +4,7 @@ import "./course-editor.css"
 import moduleReducer from "../../reducer/module-reducer"
 import {createStore} from "redux";
 import {Provider} from "react-redux";
+import ModuleList from "../module-list/module-list";
 
 const store = createStore(moduleReducer)
 
@@ -53,41 +54,7 @@ const CourseEditor = ({history}) => {
                 <div className="container editor-content">
                     <div className="row">
                         <div className="col-4">
-
-                            <ul className="list-group">
-                                <li className="list-group-item active">
-                                    Module 1 - JQuery
-                                    <i className="pull-right fa fa-trash"/>
-                                </li>
-                                <li className="list-group-item">
-                                    Module 2 - React
-                                    <i className="pull-right fa fa-trash"/>
-                                </li>
-                                <li className="list-group-item">
-                                    Module 3 - Redux
-                                    <i className="pull-right fa fa-trash"/>
-                                </li>
-                                <li className="list-group-item">
-                                    Module 4 - Native
-                                    <i className="pull-right fa fa-trash"/>
-                                </li>
-                                <li className="list-group-item">
-                                    Module 5 - Angular
-                                    <i className="pull-right fa fa-trash"/>
-                                </li>
-                                <li className="list-group-item">
-                                    Module 6 - Node
-                                    <i className="pull-right fa fa-trash"/>
-                                </li>
-                                <li className="list-group-item">
-                                    Module 7 - Mongo
-                                    <i className="pull-right fa fa-trash"/>
-                                </li>
-                                <li className="list-group-item">
-                                    <i className="pull-right fa fa-plus"/>
-                                </li>
-                            </ul>
-
+                            <ModuleList/>
                         </div>
                         <div className="col-8">
                             <br/>
