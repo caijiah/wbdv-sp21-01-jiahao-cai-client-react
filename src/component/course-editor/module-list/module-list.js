@@ -30,7 +30,7 @@ const ModuleList = ({modules=[],
                             </li>)
             }
             <li className="list-group-item addCourse-button">
-                <i onClick={createModule} className="fa fa-plus fa-2x"/>
+                <i onClick={() => createModule(courseId)} className="fa fa-plus fa-2x"/>
             </li>
         </ul>)
 }
@@ -43,8 +43,12 @@ const stpm = (state) => {
 
 const dtpm = (dispath) => {
     return {
-        createModule: () => {
-            dispath({type: "CREATE_MODULE"})
+        createModule: (courseID) => {
+            moduleApi.createModule(courseID, {title:'New Module'})
+                .then(module => dispath({
+                                            type: "CREATE_MODULE",
+                                            module: module
+                                        }))
         },
         updateModule: (newItem) => {
             dispath(
