@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import "./course-editor.css"
 import moduleReducer from "../../reducer/module-reducer"
 import lessonReducer from "../../reducer/lesson-reducer";
@@ -15,7 +15,8 @@ const reducer = combineReducers({
 
 const store = createStore(reducer)
 
-const CourseEditor = ({history}) => {
+const CourseEditor = ({history, params}) => {
+    const {layout, courseId} = useParams()
     return (
         <Provider store={store}>
             <div>
@@ -27,7 +28,7 @@ const CourseEditor = ({history}) => {
                         <i className="fa fa-times fa-2x mr-2 closing-button"
                            aria-hidden="true"
                            onClick={() => history.goBack()}/>
-                        CS5610 - WebDev
+                        {courseId} {layout}
                     </a>
                 </nav>
                 <div className="container-fluid">
