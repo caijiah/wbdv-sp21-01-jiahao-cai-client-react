@@ -27,7 +27,7 @@ const CourseEditor = ({history}) => {
                            onClick={() => history.goBack()}/>
                         <i className="fa fa-times fa-2x mr-2 closing-button"
                            aria-hidden="true"
-                           onClick={() => history.goBack()}/>
+                           onClick={() => history.push(`/courses/${layout}`)}/>
                         {courseId} {layout}
                     </a>
                 </nav>
