@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 const EditableItem = ({item,
                       updateItem,
                       deleteItem,
+                          active,
                           to}) => {
     const [editing, setEditing] = useState(false)
     const [itemCache, setItemCache] = useState(item)
@@ -12,7 +13,7 @@ const EditableItem = ({item,
             {
                 !editing &&
                 <>
-                    <Link to={to}>
+                    <Link className={`${active? 'nav-link active':''}`} to={to}>
                         {item.title}
                     </Link>
                     <i onClick={() => setEditing(true)} className="float-right fa fa-pen"/>
@@ -20,8 +21,8 @@ const EditableItem = ({item,
             }
             {
                 editing &&
-                <div className="row">
-                    <input className="form-control col-9"
+                <div>
+                    <input className="form-control"
                            value={itemCache.title}
                         onChange={(e) =>
                             setItemCache({...itemCache, title: e.target.value})}/>
