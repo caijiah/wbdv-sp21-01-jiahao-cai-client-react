@@ -51,11 +51,13 @@ const dtpm = (dispath) => {
                                         }))
         },
         updateModule: (newItem) => {
-            dispath(
-                {
-                    type: "UPDATE_MODULE",
-                    updatedModule: newItem
-                })
+            moduleService.updateModule(newItem._id, newItem)
+                .then(status => dispath(
+                    {
+                        type: "UPDATE_MODULE",
+                        updatedModule: newItem
+                    }))
+
         },
         deleteModule: (moduleToDelete) => {
             moduleService.deleteModule(moduleToDelete._id)
