@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from "react-redux"
+import "./module-list.css"
 
 const ModuleList = ({modules}) =>
     <ul className="list-group">
@@ -12,11 +13,9 @@ const ModuleList = ({modules}) =>
                 <i className="float-right fa fa-trash"/>
             </li>)
         }
-        {/*<li className="list-group-item active">*/}
-        {/*    Module 1 - JQuery*/}
-        {/*    <i className="pull-right fa fa-trash"/>*/}
-        {/*</li>*/}
-
+        <li className="list-group-item addCourse-button">
+            <i className="fa fa-plus fa-2x"/>
+        </li>
     </ul>
 
 const stpm = (state) => {
