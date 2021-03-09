@@ -2,11 +2,18 @@ import React from 'react'
 import {Link} from "react-router-dom";
 import "./course-editor.css"
 import moduleReducer from "../../reducer/module-reducer"
-import {createStore} from "redux";
+import lessonReducer from "../../reducer/lesson-reducer";
+import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import ModuleList from "./module-list/module-list";
+import LessonTabs from "./lesson-tabs/lesson-tabs";
 
-const store = createStore(moduleReducer)
+const reducer = combineReducers({
+        moduleReducer: moduleReducer,
+        lessonReducer: lessonReducer
+    })
+
+const store = createStore(reducer)
 
 const CourseEditor = ({history}) => {
     return (
@@ -29,6 +36,7 @@ const CourseEditor = ({history}) => {
                             <ModuleList/>
                         </div>
                         <div className="col-8">
+                            <LessonTabs/>
                             <br/>
 
                             <ul className="nav nav-pills">
@@ -53,8 +61,6 @@ const CourseEditor = ({history}) => {
                                     </a>
                                 </li>
                             </ul>
-
-
                         </div>
                     </div>
                     <div className="mb-3 row">
