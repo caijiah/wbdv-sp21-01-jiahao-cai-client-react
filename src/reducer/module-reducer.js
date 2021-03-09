@@ -9,6 +9,17 @@ const initialState = {
 const moduleReducer = (state= initialState, action) => {
     switch (action.type) {
         case "CREATE_MODULE":
+            const newModule = {
+                title: "New Module",
+                _id : (new Date().getTime())
+            }
+            return {
+                ...state,
+                modules: [
+                    ...state.modules,
+                    newModule
+                ]
+            }
         case "DELETE_MODULE":
         case "UPDATE_MODULE":
         default:
