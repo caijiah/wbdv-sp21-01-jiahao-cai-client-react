@@ -4,14 +4,16 @@ import "./module-list.css"
 import EditableItem from "../../editable-item";
 
 const ModuleList = ({modules=[],
-                    createModule}) =>
+                    createModule,
+                    updateModule}) =>
     <ul className="list-group">
         {
             modules.map(module =>
             <li
                 key={module._id}
                 className="list-group-item">
-                <EditableItem item={module}/>
+                <EditableItem item={module}
+                updateItem={updateModule}/>
             </li>)
         }
         <li className="list-group-item addCourse-button">
@@ -29,6 +31,13 @@ const dtpm = (dispath) => {
     return {
         createModule: () => {
             dispath({type: "CREATE_MODULE"})
+        },
+        updateModule: (newItem) => {
+            dispath(
+                {
+                    type: "UPDATE_MODULE",
+                    updatedModule: newItem
+                })
         }
     }
 }
