@@ -23,7 +23,8 @@ const deleteLesson = (lessonId) =>
 
 const api = {
     findLessonsForModule,
-    createLesson
+    createLesson,
+    deleteLesson
 }
 
 export default api
