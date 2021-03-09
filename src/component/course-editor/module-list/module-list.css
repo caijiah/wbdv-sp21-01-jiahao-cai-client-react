@@ -5,3 +5,7 @@
 .addCourse-button i{
     cursor: pointer;
 }
+
+.list-group-item.active a {
+    color: white;
+}
