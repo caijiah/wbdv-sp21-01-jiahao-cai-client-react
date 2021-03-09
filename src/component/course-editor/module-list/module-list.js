@@ -5,15 +5,18 @@ import EditableItem from "../../editable-item";
 
 const ModuleList = ({modules=[],
                     createModule,
-                    updateModule}) =>
+                    updateModule,
+                    deleteModule}) =>
     <ul className="list-group">
         {
             modules.map(module =>
             <li
                 key={module._id}
                 className="list-group-item">
-                <EditableItem item={module}
-                updateItem={updateModule}/>
+                <EditableItem
+                    item={module}
+                    updateItem={updateModule}
+                    deleteItem={deleteModule}/>
             </li>)
         }
         <li className="list-group-item addCourse-button">
@@ -37,6 +40,13 @@ const dtpm = (dispath) => {
                 {
                     type: "UPDATE_MODULE",
                     updatedModule: newItem
+                })
+        },
+        deleteModule: (moduleToDelete) => {
+            dispath(
+                {
+                    type: "DELETE_MODULE",
+                    moduleToDelete: moduleToDelete
                 })
         }
     }

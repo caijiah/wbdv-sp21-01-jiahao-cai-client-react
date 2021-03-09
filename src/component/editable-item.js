@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import {Link} from "react-router-dom";
 
 const EditableItem = ({item,
-                      updateItem}) => {
+                      updateItem,
+                      deleteItem}) => {
     const [editing, setEditing] = useState(false)
     const [itemCache, setItemCache] = useState(item)
     return (
@@ -29,7 +30,8 @@ const EditableItem = ({item,
                             updateItem(itemCache)
                         }}
                             className="float-right fa fa-check"/>
-                        <i className="float-right fa fa-times"/>
+                        <i onClick={() => deleteItem(item)}
+                           className="float-right fa fa-times"/>
                     </span>
                 </div>
             }
