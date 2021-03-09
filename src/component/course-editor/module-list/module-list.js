@@ -58,11 +58,12 @@ const dtpm = (dispath) => {
                 })
         },
         deleteModule: (moduleToDelete) => {
-            dispath(
-                {
-                    type: "DELETE_MODULE",
-                    moduleToDelete: moduleToDelete
-                })
+            moduleService.deleteModule(moduleToDelete._id)
+                .then(status => dispath({
+                                            type: "DELETE_MODULE",
+                                            moduleToDelete: moduleToDelete
+                }))
+
         },
         findModulesForCourse: (courseId) => {
             moduleService.findModulesForCourse(courseId)
