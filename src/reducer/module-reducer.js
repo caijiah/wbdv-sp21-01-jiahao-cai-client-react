@@ -1,9 +1,5 @@
 const initialState = {
-    modules: [
-        {title: 'CS5160', _id: '123'},
-        {title: 'CS3200', _id: '234'},
-        {title: 'CS5200', _id: '345'}
-    ]
+    modules:[]
 }
 
 const moduleReducer = (state= initialState, action) => {
@@ -37,6 +33,11 @@ const moduleReducer = (state= initialState, action) => {
                         return module
                     }
                 })
+            }
+        case "FIND_MODULES_FOR_COURSE":
+            return {
+                ...state,
+                modules: action.modules
             }
         default:
             return state
