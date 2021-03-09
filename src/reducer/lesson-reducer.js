@@ -18,6 +18,12 @@ const lessonReducer = (state= initialState, action) => {
                     ]
             }
         case "DELETE_LESSON":
+            return {
+                ...state,
+                lessons: state.lessons.filter(lesson => {
+                    return lesson._id !== action.lessonToDelete._id;
+                })
+            }
         case "UPDATE_LESSON":
         default:
             return state

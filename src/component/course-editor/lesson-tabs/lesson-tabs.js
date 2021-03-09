@@ -4,10 +4,12 @@ import {connect} from "react-redux"
 import EditableItem from "../../editable-item";
 import lessonService from "../../../services/lesson-service"
 import "./lesson-tabs.css"
+import moduleService from "../../../services/module-service";
 
 const LessonTabs = ({   lessons=[],
                         findLessonsForModule,
-                        createLessonForModule}) =>
+                        createLessonForModule,
+                        deleteLesson}) =>
 {
     const {layout, courseId, moduleId} = useParams()
     useEffect(()=> {
@@ -21,6 +23,7 @@ const LessonTabs = ({   lessons=[],
                                     key={lesson._id}
                                     className="nav-item">
                                     <EditableItem
+                                        deleteItem={deleteLesson}
                                         to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                                         item={lesson}/>
                                 </li>)
@@ -52,7 +55,15 @@ const dtpm = (dispath) => ({
             .then(lesson => dispath({
                 type: "CREATE_LESSON",
                 lesson
+            }))
+    },
+    deleteLesson: (lessonToDelete) => {
+        lessonService.deleteLesson(lessonToDelete._id)
+            .then(status => dispath({
+                                        type: "DELETE_LESSON",
+                                        lessonToDelete
                                     }))
+
     }
 })
 
