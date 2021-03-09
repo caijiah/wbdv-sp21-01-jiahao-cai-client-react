@@ -9,10 +9,7 @@ const LessonTabs = ({lessons=[]}) =>
                             <li
                                 key={lesson._id}
                                 className="nav-item">
-                                <a className="nav-link active" href="#">
                                     <EditableItem item={lesson}/>
-                                    {/*<i className="float-right fa fa-trash"/>*/}
-                                </a>
                             </li>)
         }
         {/*<li className="list-group-item active">*/}
