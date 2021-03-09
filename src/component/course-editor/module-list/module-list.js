@@ -3,7 +3,7 @@ import {connect} from "react-redux"
 import "./module-list.css"
 import EditableItem from "../../editable-item";
 import {useParams} from "react-router-dom";
-import moduleApi from "../../../services/module-service";
+import moduleService from "../../../services/module-service";
 
 
 const ModuleList = ({modules=[],
@@ -44,7 +44,7 @@ const stpm = (state) => {
 const dtpm = (dispath) => {
     return {
         createModule: (courseID) => {
-            moduleApi.createModule(courseID, {title:'New Module'})
+            moduleService.createModule(courseID, {title:'New Module'})
                 .then(module => dispath({
                                             type: "CREATE_MODULE",
                                             module: module
@@ -65,7 +65,7 @@ const dtpm = (dispath) => {
                 })
         },
         findModulesForCourse: (courseId) => {
-            moduleApi.findModulesForCourse(courseId)
+            moduleService.findModulesForCourse(courseId)
                 .then(modules => dispath({
                                              type: "FIND_MODULES_FOR_COURSE",
                                              modules: modules
