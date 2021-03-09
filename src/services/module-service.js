@@ -18,6 +18,15 @@ const createModule = (courseId, module) =>
 const deleteModule = (moduleId) =>
     fetch(`${MODULES_URL}/${moduleId}`, {
         method:"DELETE",
+        headers : {
+            'content-type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+
+const updateModule = (moduleId, module) =>
+    fetch(`${MODULES_URL}/${moduleId}`, {
+        method:"PUT",
         body: JSON.stringify(module),
         headers : {
             'content-type': 'application/json'
@@ -28,7 +37,8 @@ const deleteModule = (moduleId) =>
 const moduleApi = {
     findModulesForCourse,
     createModule,
-    deleteModule
+    deleteModule,
+    updateModule
 }
 
 export default moduleApi
