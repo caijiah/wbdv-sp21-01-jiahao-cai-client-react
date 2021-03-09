@@ -22,11 +22,11 @@ const EditableItem = ({item,
             {
                 editing &&
                 <div>
-                    <input className="form-control"
+                    <input className="form-control col-10"
                            value={itemCache.title}
                         onChange={(e) =>
                             setItemCache({...itemCache, title: e.target.value})}/>
-                    <span className="col-3">
+                    <span className="col-2">
                         <i onClick={() => {
                             setEditing(false)
                             updateItem(itemCache)
