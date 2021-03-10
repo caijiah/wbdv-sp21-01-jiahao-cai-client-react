@@ -6,3 +6,7 @@
 .edit-button {
     cursor: pointer;
 }
+
+.nav-tabs .nav-link {
+    background-color: #f5f5f5;
+}
