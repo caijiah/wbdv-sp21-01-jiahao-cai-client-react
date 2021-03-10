@@ -39,10 +39,15 @@ const TopicPills = ({topics=[],
                 )
             }
             {   enableAddButton &&
-                <li>
-                    <i onClick={() => createTopicForLesson(lessonId)}
-                       className="ml-3 fas fa-plus fa-2x addTopic-button"/>
-                </li>
+                    <li>
+                        <i onClick={() => createTopicForLesson(lessonId)}
+                           className="ml-3 fas fa-plus fa-2x addTopic-button"/>
+                    </li>
+            }
+            {   (lessonId === "undefined" || typeof lessonId === "undefined") &&
+                <h4>
+                    Please select a Lesson to check topics.
+                </h4>
             }
         </ul>
     )

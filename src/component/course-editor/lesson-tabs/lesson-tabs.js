@@ -44,6 +44,11 @@ const LessonTabs = ({   lessons=[],
                        className="ml-3 fas fa-plus fa-2x addLesson-button"/>
                 </li>
             }
+            { !enableAddButton &&
+              <h4>
+                  Please select a Module to check lessons.
+              </h4>
+            }
         </ul>
     )
 }
