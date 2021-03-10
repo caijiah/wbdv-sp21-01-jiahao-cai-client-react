@@ -8,7 +8,7 @@ import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import ModuleList from "./module-list/module-list";
 import LessonTabs from "./lesson-tabs/lesson-tabs";
-import topicPills from "./topic-pills/topic-pills"
+import TopicPills from "./topic-pills/topic-pills"
 import {findCourseById} from "../../services/course-service";
 
 const reducer = combineReducers({
@@ -47,7 +47,7 @@ const CourseEditor = ({history}) => {
                         <div className="col-9">
                             <LessonTabs/>
                             <br/>
-                            <topicPills/>
+                            <TopicPills/>
                         </div>
                     </div>
                     <div className="mb-3 row">
