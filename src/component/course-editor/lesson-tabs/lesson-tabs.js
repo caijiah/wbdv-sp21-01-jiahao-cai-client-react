@@ -45,37 +45,40 @@ const stpm = (state) => {
     }
 }
 
-const dtpm = (dispath) => ({
-    findLessonsForModule: (moduleId) => {
-        lessonService.findLessonsForModule(moduleId)
-            .then(lessons => dispath({
-                                         type: "FIND_LESSONS_FOR_MODULE",
-                                         lessons: lessons
-                                     }))
-    },
-    createLessonForModule: (moduleId) => {
-        lessonService.createLesson(moduleId, {title:"New Lesson"})
-            .then(lesson => dispath({
-                                        type: "CREATE_LESSON",
-                                        lesson
-                                    }))
-    },
-    updateLesson: (newItem) => {
-        lessonService.updateLesson(newItem._id, newItem)
-            .then(updatedLesson => dispath({
-                                               type: "UPDATE_LESSON",
-                                               updatedLesson
-                                           }))
-    },
-    deleteLesson: (lessonToDelete) => {
-        lessonService.deleteLesson(lessonToDelete._id)
-            .then(status => dispath({
-                                        type: "DELETE_LESSON",
-                                        lessonToDelete
-                                    }))
+const dtpm = (dispatch) => {
+    return {
+        findLessonsForModule: (moduleId) => {
+            lessonService.findLessonsForModule(moduleId)
+                .then(lessons => dispatch({
+                                             type: "FIND_LESSONS_FOR_MODULE",
+                                             lessons: lessons
+                                         }))
+        },
+        createLessonForModule: (moduleId) => {
+            lessonService.createLesson(moduleId, {title: "New Lesson"})
+                .then(lesson => dispatch({
+                                            type: "CREATE_LESSON",
+                                            lesson
+                                        }))
+        },
+        updateLesson: (newItem) => {
+            lessonService.updateLesson(newItem._id, newItem)
+                .then(status => dispatch(
+                    {
+                        type: "UPDATE_LESSON",
+                        updatedLesson: newItem
+                    }))
+        },
+        deleteLesson: (lessonToDelete) => {
+            lessonService.deleteLesson(lessonToDelete._id)
+                .then(status => dispatch({
+                                            type: "DELETE_LESSON",
+                                            lessonToDelete
+                                        }))
 
+        }
     }
-})
+}
 
 export default connect(stpm, dtpm)
 (LessonTabs)
