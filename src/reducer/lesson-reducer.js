@@ -25,6 +25,16 @@ const lessonReducer = (state= initialState, action) => {
                 })
             }
         case "UPDATE_LESSON":
+            return {
+                ...state,
+                lessons: state.lessons.map(lesson => {
+                    if (lesson._id === action.updatedLesson._id) {
+                        return action.updatedLesson
+                    } else {
+                        return lesson
+                    }
+                })
+            }
         default:
             return state
     }
