@@ -17,43 +17,48 @@ const EditableItem = ({item,
             {
                 !editing &&
                 <>
-                    <Link className={`${active? 'nav-link active':''}`} to={to}>
-                        {item.title}
-                    </Link>
-                    <i onClick={() => setEditing(true)}
-                       className="float-right fa fa-pen edit-button"/>
+
+                    { type === 'module' &&
+                      <div className='row'>
+                          <Link className={`col-10 ${active? 'nav-link active':''}`} to={to}>
+                            {item.title}
+                          </Link>
+                          <i onClick={() => setEditing(true)}
+                             className="col-2 pull-right fa fa-pen edit-button"/>
+                     </div>
+                    }
+                    {
+                        type !== 'module' &&
+                        <>
+                            <Link className={`${active? 'nav-link active':''}`} to={to}>
+                                {item.title}
+                                <i onClick={() => setEditing(true)}
+                                   className="pull-right fa fa-pen edit-button"/>
+                            </Link>
+
+                        </>
+                    }
                 </>
             }
             {
                 editing &&
-                <>
-                    {
-                        (type !== 'module') &&
-                        <Link className={`${editing ? 'nav-link active' : ''}`} to={to}>
-                            <input className="form-control col-8"
-                                   value={itemCache.title}
-                                   onChange={(e) =>
-                                       setItemCache({...itemCache, title: e.target.value})}/>
-                        </Link>
-                    }
-                    {
-                        type === 'module' &&
-                        <input className="form-control col-10"
+                <div className={`${editing && (type !== 'module') ? 'nav-link active' : ''}`}>
+                    <div className='row'>
+                        <input className="form-control col-9"
                                value={itemCache.title}
                                onChange={(e) =>
                                    setItemCache({...itemCache, title: e.target.value})}/>
-
-                    }
-                    <span className="col-2">
+                        <span className="pull-right col-3">
+                        <i onClick={() => deleteItem(item)}
+                           className="pull-right fa fa-times mr-1"/>
                         <i onClick={() => {
                             setEditing(false)
                             updateItem(itemCache)
                         }}
-                            className="float-right fa fa-check"/>
-                        <i onClick={() => deleteItem(item)}
-                           className="float-right fa fa-times"/>
+                           className="pull-right fa fa-check"/>
                     </span>
-                </>
+                    </div>
+                </div>
             }
         </li>
     )
