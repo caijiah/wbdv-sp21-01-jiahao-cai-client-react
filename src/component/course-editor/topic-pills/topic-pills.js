@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux'
 import EditableItem from "../../editable-item";
 import topicService from "../../../services/topic-service"
+import "./topic-pills.css"
 
 const TopicPills = ({topics=[],
                     findTopicsForLesson,
