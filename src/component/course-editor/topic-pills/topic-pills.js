@@ -25,7 +25,7 @@ const TopicPills = ({topics=[],
         }
     },[moduleId, lessonId])
     return (
-        <ul className='nav nav-pills'>
+        <ul className='nav nav-pills nav-fill'>
             {
                 topics.map(topic =>
                                <EditableItem

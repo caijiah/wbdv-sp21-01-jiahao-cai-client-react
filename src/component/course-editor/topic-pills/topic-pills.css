@@ -10,3 +10,7 @@
 .nav-pills .nav-item .active i {
     color: white;
 }
+
+.nav-pills .nav-link {
+    background-color: #f5f5f5;
+}
