@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux'
 import EditableItem from "../../editable-item";
@@ -11,12 +11,15 @@ const TopicPills = ({topics=[],
                     clearTopics,
                     deleteTopic}) => {
     const {layout, courseId, moduleId, lessonId, topicId} = useParams()
+    const [enableAddButton, setEnableAddButton] = useState(false)
     useEffect(()=> {
         if (moduleId !== "undefined" && typeof moduleId !== "undefined"
             &&
             lessonId !== "undefined" && typeof lessonId !== "undefined") {
             findTopicsForLesson(lessonId)
+            setEnableAddButton(true)
         } else {
+            setEnableAddButton(false)
             clearTopics()
         }
     },[moduleId, lessonId])
@@ -32,10 +35,12 @@ const TopicPills = ({topics=[],
                                item={topic}/>
                 )
             }
-            <li>
-                <i onClick={() => createTopicForLesson(lessonId)}
-                   className="fas fa-plus addTopic-button"/>
-            </li>
+            {   enableAddButton &&
+                <li>
+                    <i onClick={() => createTopicForLesson(lessonId)}
+                       className="fas fa-plus fa-2x addTopic-button"/>
+                </li>
+            }
         </ul>
     )
 }
