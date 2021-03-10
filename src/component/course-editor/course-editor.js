@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {Link, useParams} from "react-router-dom";
 import "./course-editor.css"
 import moduleReducer from "../../reducer/module-reducer"
@@ -7,6 +7,7 @@ import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import ModuleList from "./module-list/module-list";
 import LessonTabs from "./lesson-tabs/lesson-tabs";
+import {findCourseById} from "../../services/course-service";
 
 const reducer = combineReducers({
         moduleReducer: moduleReducer,
@@ -17,6 +18,10 @@ const store = createStore(reducer)
 
 const CourseEditor = ({history}) => {
     const {layout, courseId} = useParams()
+    const [courseTitle, setCourseTitle] = useState('')
+    useEffect(()=> {
+        findCourseById(courseId).then(course => {setCourseTitle(course.title)})
+    }, [courseId])
     return (
         <Provider store={store}>
             <div>
@@ -28,7 +33,7 @@ const CourseEditor = ({history}) => {
                         <i className="fa fa-times fa-2x mr-2 closing-button"
                            aria-hidden="true"
                            onClick={() => history.push(`/courses/${layout}`)}/>
-                        {courseId} {layout}
+                           {courseTitle}
                     </a>
                 </nav>
                 <div className="container-fluid">

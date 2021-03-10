@@ -19,15 +19,15 @@ const ModuleList = ({modules=[],
         <ul className="list-group">
             {
                 modules.map(module =>
-                            <li
-                                key={module._id}
-                                className={`list-group-item ${module._id === moduleId ? 'active':''}`}>
                                 <EditableItem
+                                    moduleId={`${moduleId ===module._id ? module._id : ''}`}
+                                    key={module._id}
+                                    type={"module"}
                                     to={`/courses/${layout}/edit/${courseId}/modules/${module._id}`}
                                     item={module}
                                     updateItem={updateModule}
                                     deleteItem={deleteModule}/>
-                            </li>)
+                            )
             }
             <li className="list-group-item addCourse-button">
                 <i onClick={() => createModule(courseId)} className="fa fa-plus fa-2x"/>

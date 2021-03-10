@@ -20,15 +20,14 @@ const LessonTabs = ({   lessons=[],
         <ul className="nav nav-tabs">
             {
                 lessons.map(lesson =>
-                                <li
-                                    key={lesson._id}
-                                    className="nav-item">
                                     <EditableItem
+                                        // className="nav-item"
+                                        key={lesson._id}
                                         deleteItem={deleteLesson}
                                         active={lessonId === lesson._id}
                                         to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                                         item={lesson}/>
-                                </li>)
+                                )
             }
             <li>
                 <i onClick={() => createLessonForModule(moduleId)}
