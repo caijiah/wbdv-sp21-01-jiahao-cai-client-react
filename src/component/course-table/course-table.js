@@ -15,7 +15,7 @@ export default class CourseTable extends
             <div>
                 <table className="table">
                     <thead>
-                        <tr>
+                        <tr className='d-flex'>
                             <th className="col-lg-6 col-md-8 col-8">Title</th>
                             <th className="col-lg-2 col-md-2 d-none d-md-table-cell">Owned by</th>
                             <th className="col-lg-2 d-none d-lg-table-cell">Last modified</th>
