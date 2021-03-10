@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
-import {connect} from "react-redux"
+import {connect} from 'react-redux'
 import EditableItem from "../../editable-item";
 import lessonService from "../../../services/lesson-service"
 import "./lesson-tabs.css"
@@ -9,12 +9,19 @@ const LessonTabs = ({   lessons=[],
                         findLessonsForModule,
                         createLessonForModule,
                         updateLesson,
-                        deleteLesson}) =>
+                        deleteLesson,
+                        clearLesson}) =>
 {
     const {layout, courseId, moduleId, lessonId} = useParams()
+    const [enableAddButton, setEnableAddButton] = useState(false)
     useEffect(()=> {
-        if (moduleId !== "undefined" && typeof moduleId !== "undefined") {
+        if (moduleId !== "undefined"
+            && typeof moduleId !== "undefined") {
             findLessonsForModule(moduleId)
+            setEnableAddButton(true)
+        } else {
+            setEnableAddButton(false)
+            clearLesson()
         }
     },[moduleId])
     return (
@@ -31,10 +38,12 @@ const LessonTabs = ({   lessons=[],
                                     item={lesson}/>
                 )
             }
-            <li>
-                <i onClick={() => createLessonForModule(moduleId)}
-                   className="fas fa-plus addLesson-button"/>
-            </li>
+            { enableAddButton &&
+                <li>
+                    <i onClick={() => createLessonForModule(moduleId)}
+                       className="fas fa-plus fa-2x addLesson-button"/>
+                </li>
+            }
         </ul>
     )
 }
@@ -76,7 +85,11 @@ const dtpm = (dispatch) => {
                                              lessonToDelete
                                         }))
 
-        }
+        },
+        clearLesson: () =>
+            dispatch({
+                type: "CLEAR_LESSON"
+            })
     }
 }
 
