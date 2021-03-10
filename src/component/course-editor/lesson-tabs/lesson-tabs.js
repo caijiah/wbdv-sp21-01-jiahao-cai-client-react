@@ -8,6 +8,7 @@ import "./lesson-tabs.css"
 const LessonTabs = ({   lessons=[],
                         findLessonsForModule,
                         createLessonForModule,
+                        updateLesson,
                         deleteLesson}) =>
 {
     const {layout, courseId, moduleId, lessonId} = useParams()
@@ -20,14 +21,15 @@ const LessonTabs = ({   lessons=[],
         <ul className="nav nav-tabs">
             {
                 lessons.map(lesson =>
-                                    <EditableItem
-                                        // className="nav-item"
-                                        key={lesson._id}
-                                        deleteItem={deleteLesson}
-                                        active={lessonId === lesson._id}
-                                        to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
-                                        item={lesson}/>
-                                )
+                                <EditableItem
+                                    // className="nav-item"
+                                    key={lesson._id}
+                                    updateItem={updateLesson}
+                                    deleteItem={deleteLesson}
+                                    active={lessonId === lesson._id}
+                                    to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
+                                    item={lesson}/>
+                )
             }
             <li>
                 <i onClick={() => createLessonForModule(moduleId)}
@@ -47,16 +49,23 @@ const dtpm = (dispath) => ({
     findLessonsForModule: (moduleId) => {
         lessonService.findLessonsForModule(moduleId)
             .then(lessons => dispath({
-                type: "FIND_LESSONS_FOR_MODULE",
-                lessons: lessons
-            }))
+                                         type: "FIND_LESSONS_FOR_MODULE",
+                                         lessons: lessons
+                                     }))
     },
     createLessonForModule: (moduleId) => {
         lessonService.createLesson(moduleId, {title:"New Lesson"})
             .then(lesson => dispath({
-                type: "CREATE_LESSON",
-                lesson
-            }))
+                                        type: "CREATE_LESSON",
+                                        lesson
+                                    }))
+    },
+    updateLesson: (newItem) => {
+        lessonService.updateLesson(newItem._id, newItem)
+            .then(updatedLesson => dispath({
+                                               type: "UPDATE_LESSON",
+                                               updatedLesson
+                                           }))
     },
     deleteLesson: (lessonToDelete) => {
         lessonService.deleteLesson(lessonToDelete._id)
