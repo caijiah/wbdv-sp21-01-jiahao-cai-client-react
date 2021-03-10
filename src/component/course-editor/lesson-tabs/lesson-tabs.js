@@ -41,7 +41,7 @@ const LessonTabs = ({   lessons=[],
             { enableAddButton &&
                 <li>
                     <i onClick={() => createLessonForModule(moduleId)}
-                       className="fas fa-plus fa-2x addLesson-button"/>
+                       className="ml-3 fas fa-plus fa-2x addLesson-button"/>
                 </li>
             }
         </ul>

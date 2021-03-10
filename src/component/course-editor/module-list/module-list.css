@@ -4,8 +4,17 @@
 
 .addCourse-button i{
     cursor: pointer;
+    color: #007bff;
 }
 
 .list-group-item.active a {
     color: white;
+}
+
+.list-group-item.active i {
+    color: white;
+}
+
+.edit-button {
+    color: #007bff;
 }

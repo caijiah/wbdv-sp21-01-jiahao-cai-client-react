@@ -1,7 +1,12 @@
 .addTopic-button {
     cursor: pointer;
+    color: #007bff;
 }
 
 .nav-pills .nav-item .active a {
+    color: white;
+}
+
+.nav-pills .nav-item .active i {
     color: white;
 }
