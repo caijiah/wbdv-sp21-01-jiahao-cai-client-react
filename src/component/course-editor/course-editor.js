@@ -30,9 +30,9 @@ const CourseEditor = ({history}) => {
             <div>
                 <nav className="navbar navbar-light">
                     <a className="navbar-brand">
-                        <i className="fas fa-arrow-alt-circle-left mr-2 fa-2x back-button"
-                           aria-hidden="true"
-                           onClick={() => history.goBack()}/>
+                        {/*<i className="fas fa-arrow-alt-circle-left mr-2 fa-2x back-button"*/}
+                        {/*   aria-hidden="true"*/}
+                        {/*   onClick={() => history.goBack()}/>*/}
                         <i className="fa fa-times fa-2x mr-2 closing-button"
                            aria-hidden="true"
                            onClick={() => history.push(`/courses/${layout}`)}/>
