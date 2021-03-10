@@ -25,15 +25,15 @@ const LessonTabs = ({   lessons=[],
         }
     },[moduleId])
     return (
-        <ul className="nav nav-tabs">
+        <ul className="nav nav-tabs nav-fill">
             {
                 lessons.map(lesson =>
                                 <EditableItem
-                                    // className="nav-item"
                                     key={lesson._id}
                                     updateItem={updateLesson}
                                     deleteItem={deleteLesson}
                                     active={lessonId === lesson._id}
+                                    type='tabs'
                                     to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                                     item={lesson}/>
                 )
