@@ -16,7 +16,7 @@ const createTopic = (lessonId, topic) =>
         .then(response => response.json())
 
 const deleteTopic = (topicId) =>
-    fetch(`${LESSONS_URL}/${topicId}`, {
+    fetch(`${TOPICS_URL}/${topicId}`, {
         method:"DELETE"
     })
         .then(response => response.json())
