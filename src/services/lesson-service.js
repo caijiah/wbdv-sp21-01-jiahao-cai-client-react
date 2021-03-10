@@ -15,7 +15,7 @@ const createLesson = (moduleId, lesson) =>
     })
         .then(response => response.json())
 
-const updateLesson = (lessonId, lesson) => {
+const updateLesson = (lessonId, lesson) =>
     fetch(`${LESSONS_URL}/${lessonId}`, {
         method: "PUT",
         body: JSON.stringify(lesson),
@@ -24,7 +24,7 @@ const updateLesson = (lessonId, lesson) => {
         }
     })
         .then(response => response.json())
-}
+
 
 const deleteLesson = (lessonId) =>
     fetch(`${LESSONS_URL}/${lessonId}`,{
@@ -35,8 +35,9 @@ const deleteLesson = (lessonId) =>
 const api = {
     findLessonsForModule,
     createLesson,
+    updateLesson,
     deleteLesson,
-    updateLesson
+
 }
 
 export default api
