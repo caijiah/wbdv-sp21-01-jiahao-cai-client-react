@@ -11,7 +11,7 @@ const EditableItem = ({item,
     const [editing, setEditing] = useState(false)
     const [itemCache, setItemCache] = useState(item)
     return (
-        <li className={`${type === 'module'? 'list-group-item' : 'nav-item'}
+        <li className={`${type === 'module'? 'list-group-item' : 'nav-item mr-1 mb-1'}
             ${(item._id === moduleId) ? 'active' : ''}
             ${editing ? 'active' : ''}`}>
             {
