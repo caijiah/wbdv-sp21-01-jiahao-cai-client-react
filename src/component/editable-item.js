@@ -17,7 +17,6 @@ const EditableItem = ({item,
             {
                 !editing &&
                 <>
-
                     { type === 'module' &&
                       <div className='row'>
                           <Link className={`col-10 ${active? 'nav-link active':''}`} to={to}>
@@ -29,14 +28,19 @@ const EditableItem = ({item,
                     }
                     {
                         type !== 'module' &&
-                        <>
-                            <Link className={`${active? 'nav-link active':''}`} to={to}>
-                                {item.title}
-                                <i onClick={() => setEditing(true)}
-                                   className="pull-right fa fa-pen edit-button"/>
-                            </Link>
-
-                        </>
+                        <div className={`nav-link ${active? 'active':''}`}>
+                            <div className='row'>
+                                <div className='col-9'>
+                                    <Link to={to}>
+                                        {item.title}
+                                    </Link>
+                                </div>
+                                <span className='col-3'>
+                                    <i onClick={() => setEditing(true)}
+                                       className="pull-right fa fa-pen edit-button"/>
+                                </span>
+                            </div>
+                        </div>
                     }
                 </>
             }
