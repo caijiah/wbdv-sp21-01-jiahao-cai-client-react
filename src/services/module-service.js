@@ -1,5 +1,5 @@
-const COURSES_URL = ' https://wbdv-generic-server.herokuapp.com/api/001697284/courses'
-const MODULES_URL = ' https://wbdv-generic-server.herokuapp.com/api/001697284/modules'
+const COURSES_URL = 'https://wbdv-generic-server.herokuapp.com/api/001697284/courses'
+const MODULES_URL = 'https://wbdv-generic-server.herokuapp.com/api/001697284/modules'
 
 const findModulesForCourse = (courseId) =>
     fetch(`${COURSES_URL}/${courseId}/modules`)
