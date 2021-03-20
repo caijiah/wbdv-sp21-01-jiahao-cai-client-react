@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux'
 import widgetService from '../../services/widget-service'
+import HeadingWidget from "./heading-widget/heading-widget";
+import ParagraphWidget from "./paragraph-widget/paragraph-widget";
 
 const WidgetList = ({widgets=[],
                     findWidgetsForTopic,
@@ -27,9 +29,11 @@ const WidgetList = ({widgets=[],
     return (
         <div>
             {   enableAddButton &&
-                <div className='col'>
-                    <i onClick={() => createWidgetForTopic(lessonId)}
-                       className="ml-3 fas fa-plus fa-2x float-right addTopic-button"/>
+                <div className='row'>
+                    <div className='col mb-3 mt-2'>
+                        <i onClick={() => createWidgetForTopic(lessonId)}
+                           className="ml-3 fas fa-plus fa-2x float-right addTopic-button"/>
+                    </div>
                 </div>
             }
             {   (topicId === "undefined" || typeof topicId === "undefined") &&
@@ -37,6 +41,25 @@ const WidgetList = ({widgets=[],
                     Please select a Topic to check widgets.
                 </h4>
             }
+            <ul className="list-group">
+                {
+                    widgets.map(widget =>
+                                    <li className="list-group-item" key={widget.id}>
+                                        {
+                                            widget.type === "HEADING" &&
+                                            <HeadingWidget
+                                                // editing={editingWidget.id === widget.id}
+                                                widget={widget}/>
+                                        }
+                                        {
+                                            widget.type === "PARAGRAPH" &&
+                                            <ParagraphWidget
+                                                // editing={editingWidget.id === widget.id}
+                                                widget={widget}/>
+                                        }
+                                    </li>)
+                }
+            </ul>
         </div>
     )
 }
