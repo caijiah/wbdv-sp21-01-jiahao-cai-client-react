@@ -37,3 +37,5 @@ const widgetApi = {
     updateWidget,
     deleteWidget
 }
+
+export default widgetApi
