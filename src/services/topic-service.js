@@ -31,11 +31,11 @@ const updateTopic = (topicId, topic) =>
     })
         .then(response => response.json())
 
-const moduleApi = {
+const topicApi = {
     findTopicsForLesson,
     createTopic,
     deleteTopic,
     updateTopic
 }
 
-export default moduleApi
+export default topicApi
