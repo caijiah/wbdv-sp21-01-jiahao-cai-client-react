@@ -28,7 +28,7 @@ const GeneralWidget = ({widget,
                         <WidgetTypeDropdown
                             updateWidgetType={updateWidgetType}
                             widget={itemCache}/>
-                        <span className="float-right col-2">
+                        <span className="float-right col-2 del-up-button">
                         <i onClick={() => {
                             setEditing(false)
                             updateWidget(itemCache)
