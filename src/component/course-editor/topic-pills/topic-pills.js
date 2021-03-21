@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import EditableItem from "../../editable-item";
 import topicService from "../../../services/topic-service"
 import "./topic-pills.css"
+import topicActions from "../../../actions/topic-actions";
 
 const TopicPills = ({topics=[],
                     findTopicsForLesson,
@@ -61,39 +62,12 @@ const stpm = (state) => {
 
 const dtpm = (dispatch) => {
     return {
-        findTopicsForLesson: (lessonId) => {
-            topicService.findTopicsForLesson(lessonId)
-                .then(topics => dispatch({
-                    type: "FIND_TOPICS_FOR_LESSON",
-                    topics
-                }))
-        },
-        createTopicForLesson: (lessonId) => {
-            topicService.createTopic(lessonId,
-                                     {title:"New Topic"})
-                .then(topic => dispatch({
-                    type: "CREATE_TOPIC",
-                    topic
-                }))
-        },
-        updateTopic: (newItem) => {
-            topicService.updateTopic(newItem._id, newItem)
-                .then(status => dispatch({
-                    type: "UPDATE_TOPIC",
-                    updatedTopic: newItem
-                }))
-        },
-        deleteTopic: (topicToDelete) => {
-            topicService.deleteTopic(topicToDelete._id)
-                .then(status => dispatch({
-                    type: "DELETE_TOPIC",
-                    topicToDelete
-                }))
-        },
-        clearTopics: () =>
-            dispatch({
-                type: "CLEAR_TOPICS"
-            })
+        findTopicsForLesson: (lessonId) => topicActions.findTopicsForLesson(dispatch, lessonId),
+        createTopicForLesson: (lessonId) => topicActions.createTopicForLesson(dispatch, lessonId),
+        updateTopic: (newItem) => topicActions.updateTopic(dispatch, newItem),
+        deleteTopic: (topicToDelete) => topicActions.deleteTopic(dispatch, topicToDelete),
+        clearTopics: () => topicActions.clearTopics()
     }
 }
+
 export default connect(stpm, dtpm)(TopicPills)
