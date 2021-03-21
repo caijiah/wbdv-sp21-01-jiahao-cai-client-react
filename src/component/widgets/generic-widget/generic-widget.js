@@ -3,7 +3,7 @@ import WidgetTypeDropdown from "../widget-type-dropdown/widget-type-dropdown";
 import HeadingWidget from "../heading-widget/heading-widget";
 import ParagraphWidget from "../paragraph-widget/paragraph-widget";
 
-const GeneralWidget = ({widget,
+const GenericWidget = ({widget,
                        updateWidget,
                        deleteWidget}) => {
     const [itemCache, setItemCache] = useState(widget)
@@ -89,4 +89,4 @@ const GeneralWidget = ({widget,
     )
 }
 
-export default GeneralWidget
+export default GenericWidget

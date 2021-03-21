@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux'
 import './widget-list.css'
-import GeneralWidget from "./general-widget/general-widget";
+import GenericWidget from "./generic-widget/generic-widget";
 import widgetActions from "../../actions/widget-actions";
 
 const WidgetList = ({widgets=[],
@@ -46,7 +46,7 @@ const WidgetList = ({widgets=[],
                 {
                     widgets.map(widget =>
                                     <li className="list-group-item" key={widget.id}>
-                                        <GeneralWidget
+                                        <GenericWidget
                                             widget={widget}
                                             updateWidget={updateWidget}
                                             deleteWidget={deleteWidget}/>
