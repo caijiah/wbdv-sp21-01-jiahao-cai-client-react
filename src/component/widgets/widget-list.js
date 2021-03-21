@@ -2,9 +2,8 @@ import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux'
 import widgetService from '../../services/widget-service'
-import HeadingWidget from "./heading-widget/heading-widget";
-import ParagraphWidget from "./paragraph-widget/paragraph-widget";
 import GeneralWidget from "./general-widget/general-widget";
+import widgetActions from "../../actions/widget-actions";
 
 const WidgetList = ({widgets=[],
                     findWidgetsForTopic,
@@ -12,7 +11,7 @@ const WidgetList = ({widgets=[],
                     updateWidget,
                     deleteWidget,
                     clearWidgets}) => {
-    const {layout, courseId, moduleId, lessonId, topicId} = useParams()
+    const {moduleId, lessonId, topicId} = useParams()
     const [enableAddButton, setEnableAddButton] = useState(false)
     useEffect(()=> {
         if (moduleId !== "undefined" && typeof moduleId !== "undefined"
@@ -67,43 +66,11 @@ const stpm = (state) => {
 
 const dtpm = (dispatch) => {
     return {
-        findWidgetsForTopic: (topicId) => {
-            widgetService.findWidgetsForTopic(topicId)
-                .then(widgets => dispatch({
-                    type: "FIND_WIDGETS_FOR_TOPIC",
-                    widgets
-                }))
-        },
-        createWidgetForTopic: (topicId) => {
-            widgetService.createWidget(topicId,
-                                           {
-                                               type: "HEADING",
-                                               size: 1,
-                                               text: "New Widget (default)"
-                                           })
-                .then(widget => dispatch({
-                    type: "CREATE_WIDGET",
-                    widget
-                }))
-        },
-        updateWidget: (newItem) => {
-            widgetService.updateWidget(newItem.id, newItem)
-                .then(status => dispatch({
-                    type: "UPDATE_WIDGET",
-                    updatedWidget: newItem
-                }))
-        },
-        deleteWidget: (widgetToDelete) => {
-            widgetService.deleteWidget(widgetToDelete.id)
-                .then(status => dispatch({
-                    type: "DELETE_WIDGET",
-                    widgetToDelete
-                }))
-        },
-        clearWidgets: () =>
-            dispatch({
-                type: "CLEAR_WIDGETS"
-            })
+        findWidgetsForTopic: (topicId) => widgetActions.findWidgetsForTopic(dispatch, topicId),
+        createWidgetForTopic: (topicId) => widgetActions.createWidgetForTopic(dispatch, topicId),
+        updateWidget: (newItem) => widgetActions.updateWidget(dispatch, newItem),
+        deleteWidget: (widgetToDelete) => widgetActions.deleteWidget(dispatch, widgetToDelete),
+        clearWidgets: () => widgetActions.clearWidgets(dispatch)
     }
 }
 
