@@ -12,7 +12,6 @@ const HeadingWidget = ({widget,
                 <>
                         <input value={widget.text}
                                placeholder="Edit heading here!"
-                               maxLength='100'
                                onChange={(e)=>
                                {
                                        updateWidgetText(e.target.value)
