@@ -30,8 +30,9 @@ const WidgetList = ({widgets=[],
         <div>
             {   enableAddButton &&
                 <div className='row'>
+                    <h3 className='col'>Widget List</h3>
                     <div className='col mb-3 mt-2'>
-                        <i onClick={() => createWidgetForTopic(lessonId)}
+                        <i onClick={() => createWidgetForTopic(topicId)}
                            className="ml-3 fas fa-plus fa-2x float-right addTopic-button"/>
                     </div>
                 </div>
@@ -80,7 +81,7 @@ const dtpm = (dispatch) => {
                 }))
         },
         createWidgetForTopic: (topicId) => {
-            widgetService.createWidgetForTopic(topicId,
+            widgetService.createWidget(topicId,
                                            {
                                                type: "HEADING",
                                                size: 1,
