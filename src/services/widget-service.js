@@ -1,7 +1,9 @@
-const MY_TOPICS_URL = 'http://localhost:8080/api/topics'
-const MY_WIDGETS_URL = 'http://localhost:8080/api/widgets'
+const WIDGET_URL = process.env.REACT_APP_WIDGET_URL
+const MY_TOPICS_URL = `${WIDGET_URL}/topics`
+const MY_WIDGETS_URL = `${WIDGET_URL}/widgets`
 
-const createWidget = (tid, widget) =>
+const createWidget = (tid, widget) => {
+    console.log(`${MY_TOPICS_URL}/${tid}/widgets`)
     fetch(`${MY_TOPICS_URL}/${tid}/widgets`, {
         method: "POST",
         body: JSON.stringify(widget),
@@ -10,6 +12,8 @@ const createWidget = (tid, widget) =>
         }
     })
         .then(response => response.json())
+}
+
 
 const findWidgetsForTopic = (tid) =>
     fetch(`${MY_TOPICS_URL}/${tid}/widgets`)
