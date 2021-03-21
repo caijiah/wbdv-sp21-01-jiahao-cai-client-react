@@ -79,7 +79,7 @@ const dtpm = (dispatch) => {
                                            {
                                                type: "HEADING",
                                                size: 1,
-                                               text: "New Widget"
+                                               text: "New Widget (default)"
                                            })
                 .then(widget => dispatch({
                     type: "CREATE_WIDGET",
