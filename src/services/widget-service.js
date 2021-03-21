@@ -18,7 +18,7 @@ const findWidgetsForTopic = (tid) =>
 const updateWidget = (wid, widget) =>
     fetch(`${MY_WIDGETS_URL}/${wid}`, {
         method: "PUT",
-        body: JSON.stringify(wid),
+        body: JSON.stringify(widget),
         headers: {
             'content-type': 'application/json'
         }
