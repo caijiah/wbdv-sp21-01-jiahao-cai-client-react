@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import widgetService from '../../services/widget-service'
 import HeadingWidget from "./heading-widget/heading-widget";
 import ParagraphWidget from "./paragraph-widget/paragraph-widget";
+import GeneralWidget from "./general-widget/general-widget";
 
 const WidgetList = ({widgets=[],
                     findWidgetsForTopic,
@@ -46,19 +47,12 @@ const WidgetList = ({widgets=[],
                 {
                     widgets.map(widget =>
                                     <li className="list-group-item" key={widget.id}>
-                                        {
-                                            widget.type === "HEADING" &&
-                                            <HeadingWidget
-                                                // editing={editingWidget.id === widget.id}
-                                                widget={widget}/>
-                                        }
-                                        {
-                                            widget.type === "PARAGRAPH" &&
-                                            <ParagraphWidget
-                                                // editing={editingWidget.id === widget.id}
-                                                widget={widget}/>
-                                        }
-                                    </li>)
+                                        <GeneralWidget
+                                            widget={widget}
+                                            updateWidget={updateWidget}
+                                            deleteWidget={deleteWidget}/>
+                                    </li>
+                    )
                 }
             </ul>
         </div>
