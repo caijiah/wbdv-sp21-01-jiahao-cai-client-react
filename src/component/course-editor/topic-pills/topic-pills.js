@@ -66,7 +66,7 @@ const dtpm = (dispatch) => {
         createTopicForLesson: (lessonId) => topicActions.createTopicForLesson(dispatch, lessonId),
         updateTopic: (newItem) => topicActions.updateTopic(dispatch, newItem),
         deleteTopic: (topicToDelete) => topicActions.deleteTopic(dispatch, topicToDelete),
-        clearTopics: () => topicActions.clearTopics()
+        clearTopics: () => topicActions.clearTopics(dispatch)
     }
 }
 
