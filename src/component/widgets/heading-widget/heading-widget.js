@@ -1,20 +1,34 @@
 import React from 'react'
 
-const HeadingWidget = ({widget, editing}) => {
+const HeadingWidget = ({widget,
+                       editing,
+                       updateWidgetText,
+                       updateHeadingSize}) => {
+
     return(
         <>
             {
                 editing &&
                 <>
-                    <input value={widget.text} className="form-control"/>
-                    <select value={widget.size} className="form-control">
-                        <option value={1}>Heading 1</option>
-                        <option value={2}>Heading 2</option>
-                        <option value={3}>Heading 3</option>
-                        <option value={4}>Heading 4</option>
-                        <option value={5}>Heading 5</option>
-                        <option value={6}>Heading 6</option>
-                    </select>
+                        <input value={widget.text}
+                               placeholder="Edit heading here!"
+                               maxLength='100'
+                               onChange={(e)=>
+                               {
+                                       updateWidgetText(e.target.value)
+                               }}
+                               className="form-control col-10 mb-3"/>
+                        <select value={widget.size}
+                                onChange={(e)=>
+                                    updateHeadingSize(parseInt(e.target.value))}
+                                className="form-control col-10 mb-3">
+                            <option value={1}>Heading 1</option>
+                            <option value={2}>Heading 2</option>
+                            <option value={3}>Heading 3</option>
+                            <option value={4}>Heading 4</option>
+                            <option value={5}>Heading 5</option>
+                            <option value={6}>Heading 6</option>
+                        </select>
                 </>
             }
             {
