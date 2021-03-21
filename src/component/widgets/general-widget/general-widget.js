@@ -26,7 +26,7 @@ const GeneralWidget = ({widget,
                 <>
                     <div className='row mb-3'>
                         <WidgetTypeDropdown
-                            getTypeChange={updateWidgetType}
+                            updateWidgetType={updateWidgetType}
                             widget={itemCache}/>
                         <span className="float-right col-2">
                         <i onClick={() => {
