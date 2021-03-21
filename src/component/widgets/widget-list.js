@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import {connect} from 'react-redux'
-import widgetService from '../../services/widget-service'
+import './widget-list.css'
 import GeneralWidget from "./general-widget/general-widget";
 import widgetActions from "../../actions/widget-actions";
 
