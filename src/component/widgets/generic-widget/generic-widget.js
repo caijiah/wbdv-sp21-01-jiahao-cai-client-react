@@ -25,7 +25,6 @@ const GenericWidget = ({widget,
         <div>
             {
                 editing &&
-                <>
                     <div className='row mb-3'>
                         <div className="col-10">
                         <WidgetTypeDropdown
@@ -42,7 +41,6 @@ const GenericWidget = ({widget,
                           className="float-right fa fa-trash mr-1"/>
                         </span>
                     </div>
-                </>
             }
 
             <div className='row'>
@@ -77,7 +75,6 @@ const GenericWidget = ({widget,
                             editing={editing}/>
                     }
                 </div>
-
             {
                 !editing &&
                         <div className='col-2'>
