@@ -15,7 +15,11 @@ const findWidgetsForTopic = (dispatch, topicId) => {
 }
 
 const createWidgetForTopic = (dispatch, topicId) => {
-    widgetService.createWidget(topicId, {type: "HEADING", size: 1, text: "New Widget (default)"})
+    widgetService.createWidget(topicId,
+                               {type: "HEADING",
+                                   size: 1,
+                                   text: "New Widget (default)",
+                                   ordered: false})
         .then(widget => dispatch({
                                      type: CREATE_WIDGET,
                                      widget
