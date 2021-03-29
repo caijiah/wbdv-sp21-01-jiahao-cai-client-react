@@ -1,4 +1,5 @@
 import React from 'react'
+import "./paragraph-widget.css"
 
 const ParagraphWidget = ({widget,
                          editing,
@@ -7,16 +8,14 @@ const ParagraphWidget = ({widget,
         <>
             {
                 editing &&
-                <>
                     <textarea value={widget.text}
-                    className="form-control col-10"
+                    className="form-control"
                     onChange={(e) =>
                         updateWidgetText(e.target.value)}/>
-                </>
             }
             {
                 !editing &&
-                    <p>
+                    <p className="para-break">
                         {widget.text}
                     </p>
 
