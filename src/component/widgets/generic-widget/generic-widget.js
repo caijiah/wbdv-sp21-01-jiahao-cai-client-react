@@ -21,6 +21,22 @@ const GenericWidget = ({widget,
         setItemCache({...itemCache, size: headingSize})
     }
 
+    const updateWidgetWidth = (picWidth) => {
+        setItemCache({...itemCache, width: picWidth})
+    }
+
+    const updateWidgetHeight = (picHeight) => {
+        setItemCache({...itemCache, height: picHeight})
+    }
+
+    const updateWidgetSrc = (picSrc) => {
+        setItemCache({...itemCache, src: picSrc})
+    }
+
+    const updateWidgetOrdered = () => {
+        setItemCache({...itemCache, ordered: !itemCache.ordered})
+    }
+
     return (
         <div>
             {
@@ -63,7 +79,9 @@ const GenericWidget = ({widget,
                     {
                         itemCache.type === "IMAGE" &&
                         <ImageWidget
-                            updateWidgetText={updateWidgetText}
+                            updateWidgetWidth={updateWidgetWidth}
+                            updateWidgetHeight={updateWidgetHeight}
+                            updateWidgetSrc={updateWidgetSrc}
                             widget={itemCache}
                             editing={editing}/>
                     }
@@ -71,6 +89,7 @@ const GenericWidget = ({widget,
                         itemCache.type === "LIST" &&
                         <ListWidget
                             updateWidgetText={updateWidgetText}
+                            updateWidgetOrdered={updateWidgetOrdered}
                             widget={itemCache}
                             editing={editing}/>
                     }
