@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import WidgetTypeDropdown from "../widget-type-dropdown/widget-type-dropdown";
 import HeadingWidget from "../heading-widget/heading-widget";
 import ParagraphWidget from "../paragraph-widget/paragraph-widget";
+import ImageWidget from "../image-widget/image-widget";
+import ListWidget from "../list-widget/list-widget";
 
 const GenericWidget = ({widget,
                        updateWidget,
@@ -25,9 +27,11 @@ const GenericWidget = ({widget,
                 editing &&
                 <>
                     <div className='row mb-3'>
+                        <div className="col-10">
                         <WidgetTypeDropdown
                             updateWidgetType={updateWidgetType}
                             widget={itemCache}/>
+                        </div>
                         <span className="float-right col-2 del-up-button">
                         <i onClick={() => {
                             setEditing(false)
@@ -38,53 +42,50 @@ const GenericWidget = ({widget,
                           className="float-right fa fa-trash mr-1"/>
                         </span>
                     </div>
-                    <div className='row'>
-                        {
-                            itemCache.type === "HEADING" &&
-                            <HeadingWidget
-                                widget={itemCache}
-                                updateWidgetText={updateWidgetText}
-                                updateHeadingSize={updateHeadingSize}
-                                editing={editing}/>
-                        }
-                        {
-                            itemCache.type === "PARAGRAPH" &&
-                            <ParagraphWidget
-                                updateWidgetText={updateWidgetText}
-                                widget={itemCache}
-                                editing={editing}/>
-                        }
-                    </div>
                 </>
             }
+
+            <div className='row'>
+                <div className='col-10'>
+                    {
+                        itemCache.type === "HEADING" &&
+                        <HeadingWidget
+                            widget={itemCache}
+                            updateWidgetText={updateWidgetText}
+                            updateHeadingSize={updateHeadingSize}
+                            editing={editing}/>
+                    }
+                    {
+                        itemCache.type === "PARAGRAPH" &&
+                        <ParagraphWidget
+                            updateWidgetText={updateWidgetText}
+                            widget={itemCache}
+                            editing={editing}/>
+                    }
+                    {
+                        itemCache.type === "IMAGE" &&
+                        <ImageWidget
+                            updateWidgetText={updateWidgetText}
+                            widget={itemCache}
+                            editing={editing}/>
+                    }
+                    {
+                        itemCache.type === "LIST" &&
+                        <ListWidget
+                            updateWidgetText={updateWidgetText}
+                            widget={itemCache}
+                            editing={editing}/>
+                    }
+                </div>
+
             {
                 !editing &&
-                <>
-                    <div className='row'>
-                        <div className='col-10'>
-                            {
-                                itemCache.type === "HEADING" &&
-                                <HeadingWidget
-                                    updateWidgetText={updateWidgetText}
-                                    updateHeadingSize={updateHeadingSize}
-                                    widget={itemCache}
-                                    editing={editing}/>
-                            }
-                            {
-                                itemCache.type === "PARAGRAPH" &&
-                                <ParagraphWidget
-                                    updateWidgetText={updateWidgetText}
-                                    widget={itemCache}
-                                    editing={editing}/>
-                            }
-                        </div>
                         <div className='col-2'>
                             <i onClick={() => setEditing(true)}
                                className="float-right fa fa-cog edit-button"/>
                         </div>
-                    </div>
-                </>
             }
+            </div>
         </div>
     )
 }
