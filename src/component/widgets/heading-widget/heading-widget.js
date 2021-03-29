@@ -16,11 +16,11 @@ const HeadingWidget = ({widget,
                                {
                                        updateWidgetText(e.target.value)
                                }}
-                               className="form-control col-10 mb-3"/>
+                               className="form-control mb-3"/>
                         <select value={widget.size}
                                 onChange={(e)=>
                                     updateHeadingSize(parseInt(e.target.value))}
-                                className="form-control col-10 mb-3">
+                                className="form-control mb-3">
                             <option value={1}>Heading 1</option>
                             <option value={2}>Heading 2</option>
                             <option value={3}>Heading 3</option>
