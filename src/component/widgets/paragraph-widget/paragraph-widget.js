@@ -9,9 +9,10 @@ const ParagraphWidget = ({widget,
             {
                 editing &&
                     <textarea value={widget.text}
-                    className="form-control"
-                    onChange={(e) =>
-                        updateWidgetText(e.target.value)}/>
+                              className="form-control"
+                              rows={8}
+                              onChange={(e) =>
+                                  updateWidgetText(e.target.value)}/>
             }
             {
                 !editing &&
