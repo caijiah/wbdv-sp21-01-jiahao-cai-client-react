@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import {BrowserRouter, Route} from "react-router-dom";
 import CourseManager from "./component/course-manager/course-manager";
 import CourseEditor from "./component/course-editor/course-editor";
+import QuizzesList from "./component/quizzes/quizzes-list"
 import Home from "./component/home"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -17,6 +18,9 @@ function App() {
                         "/courses/grid"]}
                  exact={true}
                  component={CourseManager}/>
+          <Route path="/courses/:courseId/quizzes" exact={true}>
+              <QuizzesList/>
+          </Route>
           <Route path={["/courses/:layout/edit/:courseId",
                         "/courses/:layout/edit/:courseId/modules/:moduleId",
                         "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId",
