@@ -46,9 +46,10 @@ class CourseRow extends
                 </td>
                 <td className="col-lg-2 col-md-2 d-none d-md-table-cell">{this.props.owner}</td>
                 <td className="col-lg-2 d-none d-lg-table-cell">{this.props.lastModified}</td>
-                <td className="col-lg-2 col-md-2 col-2"><Link
-                    to={`/courses/${this.props.course._id}/quizzes}`}>
-                    Quizzes</Link>
+                <td className="col-lg-2 col-md-2 col-2">
+                    <Link to={`/courses/${this.props.course._id}/quizzes`}>
+                        Quizzes
+                    </Link>
                 </td>
                 <td className="col-lg-2 col-md-2 col-4">
                     <span className="float-right">
