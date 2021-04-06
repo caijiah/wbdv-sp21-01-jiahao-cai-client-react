@@ -54,6 +54,10 @@ const CourseCard = (
                         {course.title}
                     </Link>
 
+                    <Link to={`/courses/${course._id}/quizzes`} className="mt-3 btn btn-primary">
+                        Quizzes
+                    </Link>
+
                     {
                         !editing &&
                         <i onClick={() => setEditing(true)}
