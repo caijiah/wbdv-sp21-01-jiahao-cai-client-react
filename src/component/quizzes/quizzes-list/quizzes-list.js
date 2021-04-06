@@ -11,9 +11,9 @@ const QuizzesList = () => {
                 setQuizzes(quizzes)})
     }, [])
     return (
-        <div className="container">
+        <div className="container-fluid">
             <h2>Quizzes</h2>
-            <ul>
+            <ul className='quizzes-list'>
             {
                 quizzes.map((quiz) => {
                     return(
