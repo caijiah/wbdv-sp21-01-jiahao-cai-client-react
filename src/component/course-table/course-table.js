@@ -16,9 +16,10 @@ export default class CourseTable extends
                 <table className="table">
                     <thead>
                         <tr className='d-flex'>
-                            <th className="col-lg-6 col-md-8 col-8">Title</th>
+                            <th className="col-lg-4 col-md-6 col-6">Title</th>
                             <th className="col-lg-2 col-md-2 d-none d-md-table-cell">Owned by</th>
                             <th className="col-lg-2 d-none d-lg-table-cell">Last modified</th>
+                            <th className="col-lg-2 col-md-2 col-4">Quizzes</th>
                             <th className="col-lg-2 col-md-2 col-4">
                                 <span className="float-right button-header">
                                     <i className="fas fa-folder"

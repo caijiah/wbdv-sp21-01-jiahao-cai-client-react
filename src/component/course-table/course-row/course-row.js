@@ -27,7 +27,7 @@ class CourseRow extends
     render() {
         return(
             <tr className='d-flex'>
-                <td className='col-lg-6 col-md-8 col-8'>
+                <td className='col-lg-4 col-md-6 col-6'>
                     {
                         !this.state.editing &&
                         <Link to={`/courses/table/edit/${this.props.course._id}`}>
@@ -46,6 +46,10 @@ class CourseRow extends
                 </td>
                 <td className="col-lg-2 col-md-2 d-none d-md-table-cell">{this.props.owner}</td>
                 <td className="col-lg-2 d-none d-lg-table-cell">{this.props.lastModified}</td>
+                <td className="col-lg-2 col-md-2 col-2"><Link
+                    to={`/courses/${this.props.course._id}/quizzes}`}>
+                    Quizzes</Link>
+                </td>
                 <td className="col-lg-2 col-md-2 col-4">
                     <span className="float-right">
                         {
