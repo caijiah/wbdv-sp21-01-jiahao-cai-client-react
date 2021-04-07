@@ -27,10 +27,10 @@ const MultipleChoiceQuestion = ({question, questionSetAnswer, answer, graded}) =
                                     </div>
                                     <div className='col-4'>
                                         {correctAnswer &&
-                                             <i className="float-right fas fa-check"/>
+                                             <i className="correct_mark float-right fas fa-check"/>
                                         }
                                         {selectedGradedButWrong &&
-                                             <i className="float-right fas fa-times"/>
+                                             <i className="wrong_mark float-right fas fa-times"/>
                                         }
                                     </div>
                                 </div>
