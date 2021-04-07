@@ -22,12 +22,12 @@ const Question = ({question}) => {
                 </div>
                 {graded && answerIsCorrect &&
                  <div className='col-4'>
-                    <i className="correct_mark float-right fas fa-check fa-2x"/>
+                    <i className="correct-mark float-right fas fa-check fa-2x"/>
                  </div>
                 }
                 {graded && answerIsWrong &&
                  <div className='col-4'>
-                     <i className="wrong_mark float-right fas fa-times fa-2x"/>
+                     <i className="wrong-mark float-right fas fa-times fa-2x"/>
                  </div>
                 }
             </div>
