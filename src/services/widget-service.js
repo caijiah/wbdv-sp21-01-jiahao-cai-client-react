@@ -1,7 +1,7 @@
-// const WIDGET_URL = process.env.REACT_APP_WIDGET_URL
+const WIDGET_URL = process.env.REACT_APP_WIDGET_URL
 // This is only for A6, since we will be tested on locally
 // I made this easier for TAs, need to change it back
-const WIDGET_URL = 'http://localhost:8080/api'
+// const WIDGET_URL = 'http://localhost:8080/api'
 const MY_TOPICS_URL = `${WIDGET_URL}/topics`
 const MY_WIDGETS_URL = `${WIDGET_URL}/widgets`
 
