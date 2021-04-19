@@ -17,7 +17,7 @@ const Question = ({question, currentAttempt, submitted}) => {
             setGraded(true)
             setAnswer(question.answer)
         }
-    },[submitted, currentAttempt])
+    },[submitted, question])
 
     const answerIsCorrect = answer === question.correct
     const answerIsWrong = answer !== question.correct

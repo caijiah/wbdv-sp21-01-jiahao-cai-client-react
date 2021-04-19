@@ -1,10 +1,6 @@
 import React, {useEffect} from 'react'
 
 const MultipleChoiceQuestion = ({question, questionSetAnswer, answer, graded}) => {
-
-    useEffect(()=> {
-
-    }, [answer])
     return (
         <ul className="options">
             {
