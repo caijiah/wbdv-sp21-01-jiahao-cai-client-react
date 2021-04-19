@@ -100,7 +100,7 @@ const Quiz = () => {
                             disabled={submitted}
                             onClick={handleSubmit}>Submit</button>
                     </div>
-                <div>
+                <div className='col-4'>
                     <h2>Attempts:</h2>
                     <ul>
                         {
