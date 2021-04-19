@@ -114,7 +114,7 @@ const Quiz = () => {
                                         <div className={`attempt-entry 
                                         ${index + 1 === curAttemptIndex ? "attempt-entry-highlight" : ""}`}
                                             onClick={() => {handleCheckAttempts(index)}}>
-                                            Attempt {index + 1}  : {parseFloat(attempt.score.toFixed(2))}/100
+                                            Attempt {index + 1}  : Score: {parseFloat(attempt.score.toFixed(2))}/100
                                         </div>
                                     </li>
                                 )
