@@ -104,6 +104,10 @@ const Quiz = () => {
                     <h2>Attempts:</h2>
                     <ul>
                         {
+                            attempts.length === 0 &&
+                            <li>No attempts yet. Please submit.</li>
+                        }
+                        {
                             attempts.map((attempt, index) => {
                                 return (
                                     <li key={index}>
