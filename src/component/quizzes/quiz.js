@@ -78,7 +78,7 @@ const Quiz = () => {
             <h2>{quizName}</h2>
             {
                 submitted && curAttempt !== null &&
-                <h3> Attempt {curAttemptIndex} : Score: {curAttempt.score}/100</h3>
+                <h3> Attempt {curAttemptIndex} : Score: {parseFloat(curAttempt.score.toFixed(2))}/100</h3>
             }
             <div className='row'>
                 <div className='col-8'>
@@ -110,7 +110,7 @@ const Quiz = () => {
                                         <div className={`attempt-entry 
                                         ${index + 1 === curAttemptIndex ? "attempt-entry-highlight" : ""}`}
                                             onClick={() => {handleCheckAttempts(index)}}>
-                                            Attempt {index + 1}  : {attempt.score}/100
+                                            Attempt {index + 1}  : {parseFloat(attempt.score.toFixed(2))}/100
                                         </div>
                                     </li>
                                 )
