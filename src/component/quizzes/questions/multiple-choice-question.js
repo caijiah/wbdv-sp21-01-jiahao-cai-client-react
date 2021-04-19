@@ -1,6 +1,10 @@
-import React, {useState} from 'react'
+import React, {useEffect} from 'react'
 
 const MultipleChoiceQuestion = ({question, questionSetAnswer, answer, graded}) => {
+
+    useEffect(()=> {
+
+    }, [answer])
     return (
         <ul className="options">
             {
@@ -20,6 +24,7 @@ const MultipleChoiceQuestion = ({question, questionSetAnswer, answer, graded}) =
                                             <input
                                                 className='mr-1'
                                                 disabled={(!!graded)}
+                                                checked={answer === choice}
                                                 onClick={()=>{questionSetAnswer(choice)}}
                                                 type="radio" name={question._id}/>
                                               {choice}

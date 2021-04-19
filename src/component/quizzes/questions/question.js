@@ -1,15 +1,23 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import TrueFalseQuestion from "./true-false-question";
 import MultipleChoiceQuestion from "./multiple-choice-question";
 import "./question.css"
 
-const Question = ({question}) => {
+const Question = ({question, currentAttempt, submitted}) => {
     const [answer, setAnswer] = useState(null)
     const [graded, setGraded] = useState(false)
 
     const questionSetAnswer = (answer) => {
         setAnswer(answer)
+        question.answer = answer
     }
+
+    useEffect(() => {
+        if (submitted) {
+            setGraded(true)
+            setAnswer(question.answer)
+        }
+    },[submitted, currentAttempt])
 
     const answerIsCorrect = answer === question.correct
     const answerIsWrong = answer !== question.correct
@@ -51,6 +59,7 @@ const Question = ({question}) => {
             </div>
             <br/>
             <button className='btn btn-success'
+                    disabled={graded}
                     onClick={()=>{
                         if (answer) {
                             setGraded(true)

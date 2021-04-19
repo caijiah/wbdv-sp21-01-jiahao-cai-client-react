@@ -9,28 +9,108 @@ const Quiz = () => {
     const {courseId, quizId} = useParams()
     const [questions, setQuestions] = useState([])
     const [quizName, setQuizName] = useState("")
+    const [submitted, setSubmitted] = useState(false)
+    const [attempts, setAttempts] = useState([])
+    const [curAttempt, setCurAttempt] = useState(null)
 
     useEffect(() => {
         questionApi.findQuestionsForQuiz(quizId)
-            .then((questions) => setQuestions(questions))
+            .then((questions) => {
+                setQuestions(questions)
+                console.log(questions)
+            })
         quizApi.findQuizById(quizId)
             .then((quiz) => setQuizName(quiz.title))
+        quizApi.findAttemptsForQuiz(quizId)
+            .then((attempts) => {
+                console.log(attempts)
+                setAttempts(attempts)
+            })
     }, [quizId])
+
+    const handleSubmit = () => {
+        let allHaveAnswer = true
+        // check if all questions have an answer
+        questions.forEach((question) => {
+            console.log(question.answer)
+            if (question.answer) {
+                allHaveAnswer = allHaveAnswer && true
+            } else {
+                allHaveAnswer = allHaveAnswer && false
+            }
+        })
+        if (allHaveAnswer) {
+            // console.log(allHaveAnswer)
+            quizApi.createAttemptForQuiz(quizId, questions)
+                .then(newAttempt => {
+                    setCurAttempt(newAttempt)
+                    setSubmitted(true)
+                    setAttempts([...attempts, newAttempt])
+                })
+        } else {
+            alert("You have to choose answers for all questions!")
+        }
+
+    }
+
+    useEffect(()=> {
+        if (submitted) {
+            console.log(curAttempt.answers)
+            setQuestions(questions => curAttempt.answers)
+        }
+    }, [curAttempt])
+
+
+    const handleCheckAttempts = (index) => {
+        setCurAttempt(curAttempt => attempts[index])
+        setSubmitted(true)
+    }
 
     return (
         <div className="container-fluid">
+
             <h2>{quizName}</h2>
-            <ul className='question-list'>
             {
-                questions.map(question => {
-                    return (
-                        <li key={question._id} className="list-group">
-                            <Question question={question}/>
-                        </li>
-                    )
-                })
+                submitted && curAttempt !== null &&
+                <h3>Score: {curAttempt.score}/100</h3>
             }
-            </ul>
+            <div className='row'>
+                <div className='col-8'>
+                    <ul className= 'question-list'>
+                    {
+                        questions.map(question => {
+                            return (
+                                <li key={question._id} className="list-group">
+                                    <Question question={question}
+                                        submitted={submitted}
+                                        currentAttempt={curAttempt}/>
+                                </li>
+                            )
+                        })
+                    }
+                    </ul>
+                    <br/>
+                    <button className='btn btn-success'
+                            disabled={submitted}
+                            onClick={handleSubmit}>Submit</button>
+                    </div>
+                <div>
+                    <h2>Attempts:</h2>
+                    <ul>
+                        {
+                            attempts.map((attempt, index) => {
+                                return (
+                                    <li key={index}>
+                                        <div onClick={() => {handleCheckAttempts(index)}}>
+                                            Attempt {index + 1}  : {attempt.score}/100
+                                        </div>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+            </div>
         </div>
     )
 }
