@@ -29,6 +29,18 @@ const Quiz = () => {
             })
     }, [quizId])
 
+    useEffect(()=> {
+        if (submitted) {
+            // console.log(curAttempt.answers)
+            setQuestions(questions => curAttempt.answers)
+            attempts.map((att, index) => {
+                if (att._id === curAttempt._id) {
+                    setCurAttemptIndex(index + 1)
+                }
+            })
+        }
+    }, [curAttempt, attempts])
+
     const handleSubmit = () => {
         let allHaveAnswer = true
         // check if all questions have an answer
@@ -53,19 +65,6 @@ const Quiz = () => {
         }
 
     }
-
-    useEffect(()=> {
-        if (submitted) {
-            // console.log(curAttempt.answers)
-            setQuestions(questions => curAttempt.answers)
-            attempts.map((att, index) => {
-                if (att._id === curAttempt._id) {
-                    setCurAttemptIndex(index + 1)
-                }
-            })
-        }
-    }, [curAttempt, attempts])
-
 
     const handleCheckAttempts = (index) => {
         setCurAttempt(curAttempt => attempts[index])
