@@ -108,7 +108,9 @@ const Quiz = () => {
                             attempts.map((attempt, index) => {
                                 return (
                                     <li key={index}>
-                                        <div onClick={() => {handleCheckAttempts(index)}}>
+                                        <div className={`attempt-entry 
+                                        ${index + 1 === curAttemptIndex ? "attempt-entry-highlight" : ""}`}
+                                            onClick={() => {handleCheckAttempts(index)}}>
                                             Attempt {index + 1}  : {attempt.score}/100
                                         </div>
                                     </li>
@@ -116,6 +118,9 @@ const Quiz = () => {
                             })
                         }
                     </ul>
+                    <br/>
+                    <button className='btn btn-success'
+                            onClick={()=>window.location.reload()}>New Attempt</button>
                 </div>
             </div>
         </div>

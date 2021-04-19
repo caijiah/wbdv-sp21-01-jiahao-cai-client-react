@@ -21,7 +21,7 @@ const MultipleChoiceQuestion = ({question, questionSetAnswer, answer, graded}) =
                                                 className='mr-1'
                                                 disabled={(!!graded)}
                                                 checked={answer === choice}
-                                                onClick={()=>{questionSetAnswer(choice)}}
+                                                onChange={()=>{questionSetAnswer(choice)}}
                                                 type="radio" name={question._id}/>
                                               {choice}
                                         </label>

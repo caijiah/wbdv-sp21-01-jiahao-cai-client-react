@@ -1,3 +1,11 @@
 .question-list {
     padding-left: 0;
 }
+
+.attempt-entry {
+    cursor: pointer;
+}
+
+.attempt-entry-highlight {
+    font-size: 20px;
+}
