@@ -12,6 +12,7 @@ const Quiz = () => {
     const [submitted, setSubmitted] = useState(false)
     const [attempts, setAttempts] = useState([])
     const [curAttempt, setCurAttempt] = useState(null)
+    const [curAttemptIndex, setCurAttemptIndex] = useState(null)
 
     useEffect(() => {
         questionApi.findQuestionsForQuiz(quizId)
@@ -32,7 +33,7 @@ const Quiz = () => {
         let allHaveAnswer = true
         // check if all questions have an answer
         questions.forEach((question) => {
-            console.log(question.answer)
+            // console.log(question.answer)
             if (question.answer) {
                 allHaveAnswer = allHaveAnswer && true
             } else {
@@ -43,7 +44,7 @@ const Quiz = () => {
             // console.log(allHaveAnswer)
             quizApi.createAttemptForQuiz(quizId, questions)
                 .then(newAttempt => {
-                    setCurAttempt(newAttempt)
+                    setCurAttempt(curAttempt => newAttempt)
                     setSubmitted(true)
                     setAttempts([...attempts, newAttempt])
                 })
@@ -55,14 +56,20 @@ const Quiz = () => {
 
     useEffect(()=> {
         if (submitted) {
-            console.log(curAttempt.answers)
+            // console.log(curAttempt.answers)
             setQuestions(questions => curAttempt.answers)
+            attempts.map((att, index) => {
+                if (att._id === curAttempt._id) {
+                    setCurAttemptIndex(index + 1)
+                }
+            })
         }
-    }, [curAttempt])
+    }, [curAttempt, attempts])
 
 
     const handleCheckAttempts = (index) => {
         setCurAttempt(curAttempt => attempts[index])
+        setCurAttemptIndex(index + 1)
         setSubmitted(true)
     }
 
@@ -72,7 +79,7 @@ const Quiz = () => {
             <h2>{quizName}</h2>
             {
                 submitted && curAttempt !== null &&
-                <h3>Score: {curAttempt.score}/100</h3>
+                <h3> Attempt {curAttemptIndex} : Score: {curAttempt.score}/100</h3>
             }
             <div className='row'>
                 <div className='col-8'>
